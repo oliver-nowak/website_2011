@@ -1,0 +1,52 @@
+/*  
+WebFont Choices
+
+http://www.google.com/webfonts#ChoosePlace:select/Collection:Comfortaa|Rationale|Play|Droid+Sans|VT323|Jura|Raleway:100|Terminal+Dosis+Light */
+
+
+
+body 
+{
+	font-family: 'Raleway', serif;
+	font-size: 16px;
+}
+  
+
+._image, ._text, ._video, ._about 
+{
+	font-family: "Raleway", serif;
+	font-size: 48px;
+	color: black;
+	position: relative;
+	display: block;
+	z-index: 99;
+	cursor: pointer;
+	text-align: center;
+	height: 80px;
+	width: 320px;
+}
+
+._image 
+{
+	left: 397px;
+	top: 180px;
+}
+
+._text
+{
+	left: 200px;
+	top: 400px;	
+}
+
+._video
+{
+	left: 590px;
+	top: 322px;
+}
+
+._about
+{
+	left: 392px;
+	top: 160px;
+}
+
