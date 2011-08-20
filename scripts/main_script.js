@@ -1,6 +1,5 @@
 $(document).ready(function() 
 {
-
 	function handleImageClick()
 	{
 		alert("IMAGE clicked");
@@ -11,23 +10,33 @@ $(document).ready(function()
 		alert("TEXT clicked");
 	}
 	
-	function handleVideoClick()
+	function handleCodeClick()
 	{
-		alert("VIDEO clicked");
+		alert("CODE clicked");
 	}
 		
 	function handleAboutClick()
 	{
-		alert("ABOUT click");
+		home_set.animate({opacity: 0.0}, 
+						 250,
+						 ">");
+						 
+		$("#_home_strat").animate({opacity: 0.0},
+							 250);
+							 
+		selectAbout();
+		
+		$("#_about_strat").css("display", "block");
+		$("#_about_strat").animate({opacity: 1.0},
+									250);
 	}
-
 
 	$('#_image').click(handleImageClick);
 	$('#_image').hover(function() {$(this).addClass('mouseOver')}, 
 					   function() {$(this).removeClass('mouseOver')});
 					   
-	$('#_video').click(handleVideoClick);
-	$('#_video').hover(function() {$(this).addClass('mouseOver')}, 
+	$('#_code').click(handleCodeClick);
+	$('#_code').hover(function() {$(this).addClass('mouseOver')}, 
 					   function() {$(this).removeClass('mouseOver')});
 					   
 	$('#_text').click(handleTextClick);
