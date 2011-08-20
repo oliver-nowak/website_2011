@@ -50,3 +50,13 @@ body
 	top: 160px;
 }
 
+.mouseOver
+{
+	text-decoration: underline;
+}
+
+.mouseOut
+{
+	text-decoration: none;
+}
+
