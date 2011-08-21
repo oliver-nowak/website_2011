@@ -73,7 +73,7 @@ body
 	opacity: 0.0;
 }
 
-._about_header, ._code_header
+._about_header, ._code_header, ._text_header
 {
 	font-size: 36px;
 	font-weight: bold;
@@ -81,7 +81,7 @@ body
 	margin-left: 280px;
 }
 
-._about_body, ._code_body
+._about_body, ._code_body, ._text_body
 {
 	font-size: 24px;
 	margin-top: 20px;
@@ -95,13 +95,13 @@ body
 	margin-left: 260px;
 }
 
-._code_strat
+._code_strat, ._text_strat
 {
 	left: 380px;
 	width: 460px;
 }
 
-._code_header
+._code_header, ._text_header
 {
 	font-size: 60px;
 	margin-left: 0px;
@@ -109,7 +109,7 @@ body
 	text-align: center;
 }
 
-._code_body
+._code_body, ._text_body
 {
 	margin-left: 0px;
 	width: 460px;

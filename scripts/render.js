@@ -31,13 +31,22 @@ home_plate.importSVG('<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmln
 
 
 var code_text = "I am a self-taught programmer extremely interested in aesthetic computation.<br><br>Presently, I am most interested in artificial life, machine learning, computer vision, visualizing massive data-sets and leveraging the concept of Photography as it is evaluated in digital form.<br><br>Most of my recent software is under NDA with Affectiva, Inc."
-
 var code_website = "This project holds the source-code to this website.";
 var code_sicp = "I am currently going through the SICP Exercises in order to learn how to be a better programmer.<br><br>This repo contains my answers in Scheme / Lisp.";
 var code_splicer = "An Adobe AIR application I developed to pixel-splice consecutive image frames into one integrated image.<br><br>This was the application I wrote in order to create my images for my MFA thesis at SVA in early 2007.";
 var code_atlantis = "A Java-port of nano-pond. This is a Java-based digital life incubator.";
 var code_pychop = "A python wrapper for Houdini to make it easier to code from an external IDE.<br><br>This was mainly to facilitate an easier means of creating and rendering 3d objects within Houdini using its Python interface.";
 var code_ocolor = "This is a C++ color library for openFrameworks ported from toxi's java library.";
+
+var text_text = "Stuff I wrote.";
+var text_capularis = "An abstract play about machines, memories, and an Unknown Violent Event.";
+var text_caught = "A noir play about Poker and paralysis.";
+var text_staples = "Surgeons dealing in black-market organs try to accept what it means to be human in a consumer society run amok.";
+var text_thesis = "My MFA thesis documenting the 'In Potentia' project. This includes a full explanation of the concept of pixel-splicing, and the software I developed to implement it.";
+var text_trauma = "A sci-fi reimagining of a Brother's Grimm tale called 'the Robber Bridegroom'.";
+var text_morituri = "An abstract modern-day Western set near Death Valley about a man & his wife, facing his past and her future.";
+var text_gauze = "Two WWII vets in post-war 1950's keep a car-accident victim hostage in the basement as a talisman of their own post-traumatic scarring.";
+
 
 function navAboutHome()
 {
@@ -81,6 +90,32 @@ function navCodeHome()
 								
 	$("#_home_strat").animate({opacity: 1.0},
 							 1000);							
+}
+
+function navTextHome()
+{
+	sSetA.animate({opacity: 0.0, translation: "265 0"},
+					500,
+					">");
+					
+	sSetB.animate({opacity: 0.0, translation: "-265 0"},
+					500,
+					">");
+					
+	text_set.animate({opacity: 0.0},
+					1000,
+					">");
+					
+	home_set.animate({opacity: 1.0},
+					1000,
+					">");
+					
+	$("#_text_strat").css("display", "none");
+	$("#_text_strat").animate({opacity: 0.0},
+								500);
+								
+	$("#_home_strat").animate({opacity: 1.0},
+							 1000);					
 }
 
 function selectAbout()
@@ -172,7 +207,7 @@ function selectText()
 	text_circle.attr("stroke-width", "2");
 	
 	createMenuNav();
-	home_nav.click(test);
+	home_nav.click(navTextHome);
 	
 	text_nav.attr("fill", "#FF9900");
 	text_nav.attr("stroke-width", "0");
@@ -194,6 +229,7 @@ function selectText()
 	}
 	
 	renderSieve();
+	configureTextElements();
 }
 
 function configureCodeElements()
@@ -263,6 +299,90 @@ function configureCodeElements()
 						$("#_code_header").html("ocolor color library");},
 			function(){$("#_code_body").html(code_text);
 						$("#_code_header").html("code");});
+}
+
+function configureTextElements()
+{
+	c1.attr("title", "script for capularis");
+	c1.attr("cursor", "pointer");
+	c1.attr("href", "http://olivernowak.com/assets/text/olivernowak_capularis.pdf");
+	c1.attr("target", "_blank");
+	c1.attr("fill", "#29ABE2");
+	c1.click();
+	c1.hover(function(){$("#_text_body").html(text_capularis);
+						$("#_text_header").html("capularis");},
+			function(){$("#_text_body").html(text_text);
+						$("#_text_header").html("text");});
+						
+	c4.attr("title", "another script");
+	c4.attr("cursor", "pointer");
+	c4.attr("href", "http://olivernowak.com/assets/text/olivernowak_caughtbetweenbulletandyou.pdf");
+	c4.attr("target", "_blank");
+	c4.attr("fill", "#29ABE2");
+	c4.click();
+	c4.hover(function(){$("#_text_body").html(text_caught);
+						$("#_text_header").html("caught between the bullet & you");},
+			function(){$("#_text_body").html(text_text);
+						$("#_text_header").html("text");});
+						
+						
+	c13.attr("title", "another script");
+	c13.attr("cursor", "pointer");
+	c13.attr("href", "http://olivernowak.com/assets/text/olivernowak_chokingonstaples.pdf");
+	c13.attr("target", "_blank");
+	c13.attr("fill", "#29ABE2");
+	c13.click();
+	c13.hover(function(){$("#_text_body").html(text_staples);
+						$("#_text_header").html("choking on staples");},
+			function(){$("#_text_body").html(text_text);
+						$("#_text_header").html("text");});
+						
+						
+	c17.attr("title", "MFA Thesis");
+	c17.attr("cursor", "pointer");
+	c17.attr("href", "http://olivernowak.com/assets/text/olivernowak_thesis2008.pdf");
+	c17.attr("target", "_blank");
+	c17.attr("fill", "#29ABE2");
+	c17.click();
+	c17.hover(function(){$("#_text_body").html(text_thesis);
+						$("#_text_header").html("in Potentia");},
+			function(){$("#_text_body").html(text_text);
+						$("#_text_header").html("text");});
+						
+	c6.attr("title", "another script");
+	c6.attr("cursor", "pointer");
+	c6.attr("href", "http://olivernowak.com/assets/text/olivernowak_beautyoftrauma.pdf");
+	c6.attr("target", "_blank");
+	c6.attr("fill", "#29ABE2");
+	c6.click();
+	c6.hover(function(){$("#_text_body").html(text_trauma);
+						$("#_text_header").html("the beauty of trauma and the trauma of beauty");},
+			function(){$("#_text_body").html(text_text);
+						$("#_text_header").html("text");});
+						
+						
+	c11.attr("title", "another script");
+	c11.attr("cursor", "pointer");
+	c11.attr("href", "http://olivernowak.com/assets/text/olivernowak_morituri.pdf");
+	c11.attr("target", "_blank");
+	c11.attr("fill", "#29ABE2");
+	c11.click();
+	c11.hover(function(){$("#_text_body").html(text_morituri);
+						$("#_text_header").html("the morituri");},
+			function(){$("#_text_body").html(text_text);
+						$("#_text_header").html("text");});
+						
+						
+	c18.attr("title", "another script");
+	c18.attr("cursor", "pointer");
+	c18.attr("href", "http://olivernowak.com/assets/text/olivernowak_aclothlikegauze.pdf");
+	c18.attr("target", "_blank");
+	c18.attr("fill", "#29ABE2");
+	c18.click();
+	c18.hover(function(){$("#_text_body").html(text_gauze);
+						$("#_text_header").html("a cloth like gauze");},
+			function(){$("#_text_body").html(text_text);
+						$("#_text_header").html("text");});
 }
 
 
