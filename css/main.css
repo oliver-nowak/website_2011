@@ -104,8 +104,9 @@ body
 ._code_header
 {
 	font-size: 60px;
-	margin-left: 145px;
+	margin-left: 0px;
 	margin-top: -235px;
+	text-align: center;
 }
 
 ._code_body

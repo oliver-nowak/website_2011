@@ -17,7 +17,7 @@ var code_set = null;
 var sieve_plate = null;
 var sSetA = null;
 var sSetB = null;
-var c0 = null;
+var c0, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14, c15, c16, c17, c18, c19 = null;
 var home_plate = Raphael(350, 100, 617, 566);
 
 var home_set = home_plate.set();
@@ -145,6 +145,76 @@ function selectCode()
 					"<");
 					
 	createSieve();				
+	configureCodeElements();
+}
+
+function configureCodeElements()
+{	
+	c0.attr("title", "code for this website");
+	c0.attr("cursor", "pointer");
+	c0.attr("href", "https://github.com/oliver-nowak/website_2011");
+	c0.attr("target", "_blank");
+	c0.attr("fill", "#29ABE2");
+	c0.click();
+	c0.hover(function(){$("#_code_body").html(code_website);
+						$("#_code_header").html("website c.2011");},
+			function(){$("#_code_body").html(code_text);
+						$("#_code_header").html("code");});
+	
+	c9.attr("title", "code for the SICP Exercises");
+	c9.attr("cursor", "pointer");
+	c9.attr("href", "https://github.com/oliver-nowak/SICP-Exercises");
+	c9.attr("target", "_blank");
+	c9.attr("fill", "#29ABE2");
+	c9.click();
+	c9.hover(function(){$("#_code_body").html(code_sicp);
+						$("#_code_header").html("SICP Exercises");},
+			function(){$("#_code_body").html(code_text);
+						$("#_code_header").html("code");});
+			
+	c16.attr("title", "code for my pixel splicer");
+	c16.attr("cursor", "pointer");
+	c16.attr("href", "https://github.com/oliver-nowak/pixel_splicer");
+	c16.attr("target", "_blank");
+	c16.attr("fill", "#29ABE2");
+	c16.click();
+	c16.hover(function(){$("#_code_body").html(code_splicer);
+						$("#_code_header").html("pixel splicer");},
+			function(){$("#_code_body").html(code_text);
+						$("#_code_header").html("code");});
+			
+	c6.attr("title", "code for my artificial life incubator");
+	c6.attr("cursor", "pointer");
+	c6.attr("href", "https://github.com/oliver-nowak/atlantis");
+	c6.attr("target", "_blank");
+	c6.attr("fill", "#29ABE2");
+	c6.click();
+	c6.hover(function(){$("#_code_body").html(code_atlantis);
+						$("#_code_header").html("atlantis");},
+			function(){$("#_code_body").html(code_text);
+						$("#_code_header").html("code");});
+			
+	c10.attr("title", "code for creating shapes in Houdini");
+	c10.attr("cursor", "pointer");
+	c10.attr("href", "https://github.com/oliver-nowak/pychop");
+	c10.attr("target", "_blank");
+	c10.attr("fill", "#29ABE2");
+	c10.click();
+	c10.hover(function(){$("#_code_body").html(code_pychop);
+						$("#_code_header").html("pychop houdini shapes");},
+			function(){$("#_code_body").html(code_text);
+						$("#_code_header").html("code");});
+			
+	c18.attr("title", "code for a color framework for openFrameworks");
+	c18.attr("cursor", "pointer");
+	c18.attr("href", "https://github.com/oliver-nowak/ocolor");
+	c18.attr("target", "_blank");
+	c18.attr("fill", "#29ABE2");
+	c18.click();
+	c18.hover(function(){$("#_code_body").html(code_ocolor);
+						$("#_code_header").html("ocolor color library");},
+			function(){$("#_code_body").html(code_text);
+						$("#_code_header").html("code");});
 }
 
 
@@ -215,39 +285,15 @@ function createSieve()
 	}
 
 	c0 = sieve_plate.circle(140, 100, 40);
-	c0.attr("title", "code for this website");
-	c0.attr("cursor", "pointer");
-	c0.attr("href", "https://github.com/oliver-nowak/website_2011");
-	c0.attr("target", "_blank");
-	c0.click();
-	c0.hover(function(){$("#_code_body").html(code_website);},
-			function(){$("#_code_body").html(code_text);});
-	
-	var c1 = sieve_plate.circle(230, 100, 40);	
-	var c4 = sieve_plate.circle(100, 180, 40);
-	var c5 = sieve_plate.circle(190, 180, 40);
-	var c8 = sieve_plate.circle(140, 260, 40);
-	var c9 = sieve_plate.circle(230, 260, 40);
-	c9.attr("title", "code for the SICP Exercises");
-	c9.attr("cursor", "pointer");
-	c9.attr("href", "https://github.com/oliver-nowak/SICP-Exercises");
-	c9.attr("target", "_blank");
-	c9.click();
-	c9.hover(function(){$("#_code_body").html(code_sicp);},
-			function(){$("#_code_body").html(code_text);});
-	
-	var c12= sieve_plate.circle(100, 340, 40);
-	var c13= sieve_plate.circle(190, 340, 40);	
-	var c16= sieve_plate.circle(140, 420, 40);
-	c16.attr("title", "code for my pixel splicer");
-	c16.attr("cursor", "pointer");
-	c16.attr("href", "https://github.com/oliver-nowak/pixel_splicer");
-	c16.attr("target", "_blank");
-	c16.click();
-	c16.hover(function(){$("#_code_body").html(code_splicer);},
-			function(){$("#_code_body").html(code_text);});
-	
-	var c17= sieve_plate.circle(230, 420, 40);
+	c1 = sieve_plate.circle(230, 100, 40);	
+	c4 = sieve_plate.circle(100, 180, 40);
+	c5 = sieve_plate.circle(190, 180, 40);
+	c8 = sieve_plate.circle(140, 260, 40);
+	c9 = sieve_plate.circle(230, 260, 40);
+	c12= sieve_plate.circle(100, 340, 40);
+	c13= sieve_plate.circle(190, 340, 40);	
+	c16= sieve_plate.circle(140, 420, 40);
+	c17= sieve_plate.circle(230, 420, 40);
 	
 	sSetA = sieve_plate.set();
 	sSetA.push(c0,
@@ -262,51 +308,21 @@ function createSieve()
 			   c17);
 	sSetA.attr("opacity", 0.0);
 	sSetA.attr("fill", "#cccccc");
-	
-	c0.attr("fill", "#29ABE2");
-	c9.attr("fill", "#29ABE2");
-	c16.attr("fill", "#29ABE2");
-	
-	
 	sSetA.attr("stroke-width", "0");
 	sSetA.translate(265, 0);
 	sSetA.animate({opacity: 1.0, translation: "-265 0"}, 500, "<");
 	
 	
-	var c2 = sieve_plate.circle(940, 100, 40);
-	var c3 = sieve_plate.circle(850, 100, 40);
-	var c6 = sieve_plate.circle(810, 180, 40);
-	c6.attr("title", "code for my artificial life incubator");
-	c6.attr("cursor", "pointer");
-	c6.attr("href", "https://github.com/oliver-nowak/atlantis");
-	c6.attr("target", "_blank");
-	c6.click();
-	c6.hover(function(){$("#_code_body").html(code_atlantis);},
-			function(){$("#_code_body").html(code_text);});
-	
-	var c7 = sieve_plate.circle(900, 180, 40);
-	var c10= sieve_plate.circle(850, 260, 40);
-	c10.attr("title", "code for creating shapes in Houdini");
-	c10.attr("cursor", "pointer");
-	c10.attr("href", "https://github.com/oliver-nowak/pychop");
-	c10.attr("target", "_blank");
-	c10.click();
-	c10.hover(function(){$("#_code_body").html(code_pychop);},
-			function(){$("#_code_body").html(code_text);});
-	
-	var c11= sieve_plate.circle(940, 260, 40);
-	var c14= sieve_plate.circle(810, 340, 40);
-	var c15= sieve_plate.circle(900, 340, 40);
-	var c18= sieve_plate.circle(850, 420, 40);
-	c18.attr("title", "code for a color framework for openFrameworks");
-	c18.attr("cursor", "pointer");
-	c18.attr("href", "https://github.com/oliver-nowak/ocolor");
-	c18.attr("target", "_blank");
-	c18.click();
-	c18.hover(function(){$("#_code_body").html(code_ocolor);},
-			function(){$("#_code_body").html(code_text);});
-	
-	var c19= sieve_plate.circle(940, 420, 40);
+	c2 = sieve_plate.circle(940, 100, 40);
+	c3 = sieve_plate.circle(850, 100, 40);
+	c6 = sieve_plate.circle(810, 180, 40);
+	c7 = sieve_plate.circle(900, 180, 40);
+	c10= sieve_plate.circle(850, 260, 40);
+	c11= sieve_plate.circle(940, 260, 40);
+	c14= sieve_plate.circle(810, 340, 40);
+	c15= sieve_plate.circle(900, 340, 40);
+	c18= sieve_plate.circle(850, 420, 40);
+	c19= sieve_plate.circle(940, 420, 40);
 
 	sSetB = sieve_plate.set();
 	sSetB.push(c2,
@@ -322,11 +338,6 @@ function createSieve()
 	
 	sSetB.attr("opacity", 0.0);
 	sSetB.attr("fill", "#cccccc");
-	
-	c6.attr("fill", "#29ABE2");
-	c10.attr("fill", "#29ABE2");
-	c18.attr("fill", "#29ABE2");
-	
 	sSetB.attr("stroke-width", "0");
 	sSetB.translate(-265,0);
 	sSetB.animate({opacity: 1.0, translation:"265 0"}, 500, "<");
