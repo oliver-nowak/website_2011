@@ -12,7 +12,18 @@ $(document).ready(function()
 	
 	function handleCodeClick()
 	{
-		alert("CODE clicked");
+		home_set.animate({opacity: 0.0},
+						250,
+						">");
+						
+		$("#_home_strat").animate({opacity: 0.0},
+								 250);
+								 
+		selectCode();
+		
+		$("#_code_strat").css("display", "block");
+		$("#_code_strat").animate({opacity: 1.0},
+									2000);
 	}
 		
 	function handleAboutClick()
