@@ -14,6 +14,11 @@ var code_plate = null;
 var code_circle = null;
 var code_set = null;
 
+var text_plate = null;
+var text_circle = null;
+var text_set = null;
+
+var isSieveInit = false;
 var sieve_plate = null;
 var sSetA = null;
 var sSetB = null;
@@ -144,8 +149,51 @@ function selectCode()
 					250,
 					"<");
 					
-	createSieve();				
+	if (!isSieveInit) {
+		createSieve();		
+	}	
+	
+	renderSieve();
 	configureCodeElements();
+}
+
+function selectText()
+{
+	if (text_plate == null) {
+		text_plate = Raphael(100, 0, 1280, 1280);
+	}
+	
+	if (text_circle == null) {
+		text_circle = text_plate.circle(530, 360, 512);	
+	}
+	
+	text_circle.attr("opacity", 0.0);
+	text_circle.attr("stroke", "#F00");
+	text_circle.attr("stroke-width", "2");
+	
+	createMenuNav();
+	home_nav.click(test);
+	
+	text_nav.attr("fill", "#FF9900");
+	text_nav.attr("stroke-width", "0");
+	
+	text_set = text_plate.set();
+	text_set.push(image_nav,
+				  code_nav,
+				  text_nav,
+				  about_nav,
+				  home_nav,
+				  text_circle);
+				  
+	text_set.animate({opacity: 1.0},
+					250,
+					"<");
+	
+	if (!isSieveInit) {
+		createSieve();
+	}
+	
+	renderSieve();
 }
 
 function configureCodeElements()
@@ -282,6 +330,7 @@ function createSieve()
 	if (sieve_plate == null)
 	{
 		sieve_plate = Raphael(100, 100, 1100, 600);
+		isSieveInit = true;
 	}
 
 	c0 = sieve_plate.circle(140, 100, 40);
@@ -306,11 +355,7 @@ function createSieve()
 			   c13,
 			   c16,
 			   c17);
-	sSetA.attr("opacity", 0.0);
-	sSetA.attr("fill", "#cccccc");
-	sSetA.attr("stroke-width", "0");
-	sSetA.translate(265, 0);
-	sSetA.animate({opacity: 1.0, translation: "-265 0"}, 500, "<");
+	
 	
 	
 	c2 = sieve_plate.circle(940, 100, 40);
@@ -336,6 +381,17 @@ function createSieve()
 			   c18,
 			   c19);
 	
+	
+}
+
+function renderSieve()
+{
+	sSetA.attr("opacity", 0.0);
+	sSetA.attr("fill", "#cccccc");
+	sSetA.attr("stroke-width", "0");
+	sSetA.translate(265, 0);
+	sSetA.animate({opacity: 1.0, translation: "-265 0"}, 500, "<");
+
 	sSetB.attr("opacity", 0.0);
 	sSetB.attr("fill", "#cccccc");
 	sSetB.attr("stroke-width", "0");

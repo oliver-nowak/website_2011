@@ -7,7 +7,18 @@ $(document).ready(function()
 
 	function handleTextClick()
 	{
-		alert("TEXT clicked");
+		home_set.animate({opacity: 0.0},
+						250,
+						">");
+						
+		$("#_home_strat").animate({opacity: 0.0},
+						250);
+						
+		selectText();
+		
+		$("#_text_strat").css("display", "block");
+		$("#_text_strat").animate({opacity: 1.0},
+									2000);
 	}
 	
 	function handleCodeClick()

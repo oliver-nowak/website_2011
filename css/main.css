@@ -61,7 +61,7 @@ body
 	position: relative;
 }
 
-._about_strat, ._code_strat
+._about_strat, ._code_strat, ._text_strat
 {
 	display: none;
 	position: relative;	
