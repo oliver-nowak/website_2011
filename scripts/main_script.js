@@ -2,7 +2,18 @@ $(document).ready(function()
 {
 	function handleImageClick()
 	{
-		alert("IMAGE clicked");
+		home_set.animate({opacity: 0.0},
+						250,
+						">");
+						
+		$("#_home_strat").animate({opacity:0.0},
+						250);
+						
+		selectImage();
+		
+		$("#_image_strat").css("display", "block");
+		$("#_image_strat").animate({opacity:1.0},
+									2000);
 	}
 
 	function handleTextClick()
