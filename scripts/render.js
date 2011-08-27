@@ -27,6 +27,9 @@ var text_set = null;
 var image_plate = null;
 var image_circle = null;
 var image_set = null;
+var image = new Image();
+var currentProject = -1;
+var currentImage = -1;
 
 //SIEVE graphics
 var isSieveInit = false;
@@ -63,6 +66,8 @@ var text_gauze = "Two WWII vets in post-war 1950's keep a car-accident victim ho
 
 // IMAGE text
 var image_text = "My interest in photography comes from a desire to push the bounderies of what is expected and possible in photographs and digital images. <br><br>This could be subverting the optical effect of a camera lens, pushing film beyond its capabilities, seamless digital manipulation - or more recently - using artificial life to transform and subvert our idea of what it means to be a digital image. <br><br>The pixel represents the volatility of the moment within the continuum of the screen. It is dynamic and timeless, smoothly transitioning through data states as effortlessly as it maneuvers through the space of the screen, as the screen, and for the screen.";
+var image_amerika = "This series of images depict the paranoia and isolationism seeping into american culture. <br><br>It is ironic to me that the desire to be seen has also become just as prevalent with Twitter and Facebook in our disembodied digital culture.";
+
 
 function navAboutHome()
 {
@@ -469,9 +474,67 @@ function configureTextElements()
 
 function configureImageElements()
 {
-
+	c0.attr("title", "amerika");
+	c0.attr("cursor", "pointer");
+	c0.attr("fill", "#29ABE2");
+	c0.click(loadImg);
+	c0.hover(function(){$("#_image_body").html(image_amerika);
+						$("#_image_header").html("amerika");},
+			function(){$("#_image_body").html(image_text);
+						$("#_image_header").html("image");});
 }
 
+function loadImg()
+{
+	$("#_image_header").css("display", "none");
+	$("#_image_body").css("display", "none");
+	
+	$(image).load(function () {
+      // set the image hidden by default    
+      $(this).hide();
+    
+      // with the holding div #loader, apply:
+      $('#loader')
+        // remove the loading class (so no background spinner), 
+        .removeClass('loading')
+        // then insert our image
+        .append(this);
+    
+      // fade our image in to create a nice effect
+      $(this).fadeIn();
+    })
+    
+    // if there was an error loading the image, react accordingly
+    .error(function () {
+      // notify the user that the image could not be loaded
+    })
+    
+    // *finally*, set the src attribute of the new image to our image
+    .attr('src', '/assets/oliver_nowak.jpeg');
+    
+    
+    createImageNav();
+}
+
+function createImageNav()
+{
+	var img0 = image_plate.path("M 340 620 L 380 620 L 360 580 z");
+	img0.attr("fill", "url(/assets/oliver_nowak.jpeg)");
+	img0.attr("stroke-width", "0");
+	
+	var img2 = image_plate.path("M 410 620 L 450 620 L 430 580 z");
+	var img4 = image_plate.path("M 480 620 L 520 620 L 500 580 z");
+	var img6 = image_plate.path("M 550 620 L 590 620 L 570 580 z");
+	var img8 = image_plate.path("M 620 620 L 660 620 L 640 580 z");
+	
+	var img1 = image_plate.path("M 375 580 L 415 580 L 395 620 z");
+	var img3 = image_plate.path("M 445 580 L 485 580 L 465 620 z");
+	var img5 = image_plate.path("M 515 580 L 555 580 L 535 620 z");
+	var img7 = image_plate.path("M 585 580 L 625 580 L 605 620 z");
+	var img9 = image_plate.path("M 655 580 L 695 580 L 675 620 z");
+	
+	
+}
 
 function createMenuNav()
 {
