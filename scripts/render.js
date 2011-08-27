@@ -111,7 +111,8 @@ function navCodeHome()
 					
 	home_set.animate({opacity: 1.0},
 					1000,
-					">");
+					">",
+					resetSieve);
 					
 	$("#_code_strat").css("display", "none");
 	$("#_code_strat").animate({opacity: 0.0},
@@ -137,7 +138,8 @@ function navTextHome()
 					
 	home_set.animate({opacity: 1.0},
 					1000,
-					">");
+					">",
+					resetSieve);
 					
 	$("#_text_strat").css("display", "none");
 	$("#_text_strat").animate({opacity: 0.0},
@@ -160,14 +162,17 @@ function navImageHome()
 	image_set.animate({opacity: 0.0}, 
 						1000,
 						">");
-						
-	imageNav_set.animate({opacity: 0.0},
-							1000,
-							">");
+				
+	if (imageNav_set != null) {		
+		imageNav_set.animate({opacity: 0.0},
+								1000,
+								">");
+	}
 						
 	home_set.animate({opacity: 1.0},
 						1000,
-						">");
+						">",
+						resetSieve);
 						
 	$("#_image_strat").css("display", "none");
 	$("#_image_strat").animate({opacity: 0.0},
@@ -175,6 +180,8 @@ function navImageHome()
 								
 	$("#_home_strat").animate({opacity: 1.0},
 								1000);
+														
+	console.log( sSetA.attr("cx") );
 }
 
 function selectAbout()
@@ -912,6 +919,10 @@ function createSieve()
 
 function renderSieve()
 {
+	console.log( sSetA.attr("cx") );
+
+/* 	sSetA.attr("cx", 0); */
+	
 	sSetA.attr("opacity", 0.0);
 	sSetA.attr("fill", "#cccccc");
 	sSetA.attr("stroke-width", "0");
@@ -923,6 +934,12 @@ function renderSieve()
 	sSetB.attr("stroke-width", "0");
 	sSetB.translate(-265,0);
 	sSetB.animate({opacity: 1.0, translation:"265 0"}, 500, "<");
+}
+
+function resetSieve()
+{
+	sSetA.translate(-265, 0);	
+	sSetB.translate(265, 0);
 }
 
 /*
