@@ -1,3 +1,5 @@
+//TODO: add image titles
+
 // Navigation Members
 var menu_plate = null;
 var menu_set = null;
@@ -28,8 +30,10 @@ var image_plate = null;
 var image_circle = null;
 var image_set = null;
 var image = new Image();
-var currentProject = -1;
-var currentImage = -1;
+var currentProject = null;
+var currentImage = null;
+var img0,img1,img2,img3,img4,img5,img6,img7,img8,img9 = null;
+var imageNav_set = null;
 
 //SIEVE graphics
 var isSieveInit = false;
@@ -67,7 +71,11 @@ var text_gauze = "Two WWII vets in post-war 1950's keep a car-accident victim ho
 // IMAGE text
 var image_text = "My interest in photography comes from a desire to push the bounderies of what is expected and possible in photographs and digital images. <br><br>This could be subverting the optical effect of a camera lens, pushing film beyond its capabilities, seamless digital manipulation - or more recently - using artificial life to transform and subvert our idea of what it means to be a digital image. <br><br>The pixel represents the volatility of the moment within the continuum of the screen. It is dynamic and timeless, smoothly transitioning through data states as effortlessly as it maneuvers through the space of the screen, as the screen, and for the screen.";
 var image_amerika = "This series of images depict the paranoia and isolationism seeping into american culture. <br><br>It is ironic to me that the desire to be seen has also become just as prevalent with Twitter and Facebook in our disembodied digital culture.";
-
+var image_olympia = "Who we are:<br><br>alienated, dehumanized, emotionally amputated.<br><br><br><br>yes even you";
+var image_plasticity = "Depictions of industrialized bodies and globalized minds where the question 'what are you hiding?' replaces 'what do you know?'";
+var image_portrait = "Personal Images.<br><br>squandered potential<br>misguided love<br>my skin is latex<br>my body, biomechanic";
+var image_potentia = "In this series I take the first proto-films from Edison, Lumiere, LePrince, et al and pixel-splice them into one integrated image.<br><br>Pixel-splicing is a technique I devised that comprehensively integrates all of the frames of a proto-film into an image.<br><br>As a result, the image contains content information from every frame. This is different from a more traditional photoshop approach of layering the frames over each other.<br><br>Please see the text 'In Potentia' in TEXT-->In Potentia for a more technical and critical analysis.";
+var image_uncanny = "This series uses ordinary household objects to conflate the still-life, the landscape and the portrait into one image.<br><br>Everything you see is done 'in-camera'. No digital manipulation was used to create these pictures.<br><br>By juxtaposing hardware into a landscape, I suggest a fruitful symbiosis between nature and the constructed, the digital and the analog, truth as we see it & truth as we know it.";
 
 function navAboutHome()
 {
@@ -152,6 +160,10 @@ function navImageHome()
 	image_set.animate({opacity: 0.0}, 
 						1000,
 						">");
+						
+	imageNav_set.animate({opacity: 0.0},
+							1000,
+							">");
 						
 	home_set.animate({opacity: 1.0},
 						1000,
@@ -310,6 +322,12 @@ function selectImage()
 	image_set.animate({opacity: 1.0},
 						250,
 						"<");
+						
+	if (imageNav_set != null) {
+		imageNav_set.animate({opacity: 1.0},
+								250,
+								"<");
+	}
 						
 	if (!isSieveInit) {
 		createSieve();
@@ -477,16 +495,139 @@ function configureImageElements()
 	c0.attr("title", "amerika");
 	c0.attr("cursor", "pointer");
 	c0.attr("fill", "#29ABE2");
-	c0.click(loadImg);
+	c0.click(function(){
+						currentImage   = 1;
+						currentProject = "amerika"; 
+						loadImg(currentImage, currentProject);
+						createImageNav();
+						});
+						
 	c0.hover(function(){$("#_image_body").html(image_amerika);
 						$("#_image_header").html("amerika");},
 			function(){$("#_image_body").html(image_text);
 						$("#_image_header").html("image");});
+						
+	////
+	c0.attr("title", "amerika");
+	c0.attr("cursor", "pointer");
+	c0.attr("fill", "#29ABE2");
+	c0.click(function(){
+						currentImage   = 1;
+						currentProject = "amerika"; 
+						loadImg(currentImage, currentProject);
+						createImageNav();
+						});
+						
+	c0.hover(function(){$("#_image_body").html(image_amerika);
+						$("#_image_header").html("amerika");},
+			function(){$("#_image_body").html(image_text);
+						$("#_image_header").html("image");});
+	
+	////
+	
+	c3.attr("title", "olympia");
+	c3.attr("cursor", "pointer");
+	c3.attr("fill", "#29ABE2");
+	c3.click(function(){
+						currentImage   = 1;
+						currentProject = "olympia"; 
+						loadImg(currentImage, currentProject);
+						createImageNav();
+						});
+						
+	c3.hover(function(){$("#_image_body").html(image_olympia);
+						$("#_image_header").html("mr.torn + olympia");},
+			function(){$("#_image_body").html(image_text);
+						$("#_image_header").html("image");});
+	////
+	c15.attr("title", "plasticity");
+	c15.attr("cursor", "pointer");
+	c15.attr("fill", "#29ABE2");
+	c15.click(function(){
+						currentImage   = 1;
+						currentProject = "plasticity"; 
+						loadImg(currentImage, currentProject);
+						createImageNav();
+						});
+						
+	c15.hover(function(){$("#_image_body").html(image_plasticity);
+						$("#_image_header").html("plasticity");},
+			function(){$("#_image_body").html(image_text);
+						$("#_image_header").html("image");});
+	
+	///
+	c6.attr("title", "portrait");
+	c6.attr("cursor", "pointer");
+	c6.attr("fill", "#29ABE2");
+	c6.click(function(){
+						currentImage   = 1;
+						currentProject = "portrait"; 
+						loadImg(currentImage, currentProject);
+						createImageNav();
+						});
+						
+	c6.hover(function(){$("#_image_body").html(image_portrait);
+						$("#_image_header").html("portraits");},
+			function(){$("#_image_body").html(image_text);
+						$("#_image_header").html("image");});
+	
+	////
+	
+	c13.attr("title", "potentia");
+	c13.attr("cursor", "pointer");
+	c13.attr("fill", "#29ABE2");
+	c13.click(function(){
+						currentImage   = 1;
+						currentProject = "potentia"; 
+						loadImg(currentImage, currentProject);
+						createImageNav();
+						});
+						
+	c13.hover(function(){$("#_image_body").html(image_potentia);
+						$("#_image_header").html("in Potentia");},
+			function(){$("#_image_body").html(image_text);
+						$("#_image_header").html("image");});
+	////
+	
+	c17.attr("title", "uncanny");
+	c17.attr("cursor", "pointer");
+	c17.attr("fill", "#29ABE2");
+	c17.click(function(){
+						currentImage   = 1;
+						currentProject = "uncanny"; 
+						loadImg(currentImage, currentProject);
+						createImageNav();
+						});
+						
+	c17.hover(function(){$("#_image_body").html(image_uncanny);
+						$("#_image_header").html("uncanny valley");},
+			function(){$("#_image_body").html(image_text);
+						$("#_image_header").html("image");});
 }
 
-function loadImg()
+function getImgUrl(selImage, selProj)
 {
-	$("#_image_header").css("display", "none");
+	var _url = "";
+	var pad = "";
+	if (selImage == 10) { 
+		pad = "0";
+	} else {
+		pad = "00";
+	}
+	
+	_url = selProj + "_" + pad + selImage + ".jpg";
+	
+	return _url;
+}
+
+function loadImg(selImage, selProj)
+{
+	console.log(selImage + " : " + selProj);
+	
+	var imgUrl = getImgUrl(selImage, selProj);
+	
+	console.log(imgUrl);
+	
 	$("#_image_body").css("display", "none");
 	
 	$(image).load(function () {
@@ -510,30 +651,145 @@ function loadImg()
     })
     
     // *finally*, set the src attribute of the new image to our image
-    .attr('src', '/assets/oliver_nowak.jpeg');
-    
-    
-    createImageNav();
+    .attr('src', '/assets/image/' + selProj + "/" + imgUrl);
 }
 
 function createImageNav()
 {
-	var img0 = image_plate.path("M 340 620 L 380 620 L 360 580 z");
-	img0.attr("fill", "url(/assets/oliver_nowak.jpeg)");
+	img0 = image_plate.path("M 340 620 L 380 620 L 360 580 z");
+	img0.attr("opacity", 0.0);
+	img0.attr("title", "American Dream");
+	img0.attr("cursor", "pointer");
+	img0.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(1, currentProject) + ")");
 	img0.attr("stroke-width", "0");
+	img0.click(function(){
+						currentImage   = 1;
+						loadImg(currentImage, currentProject);
+						});
 	
-	var img2 = image_plate.path("M 410 620 L 450 620 L 430 580 z");
-	var img4 = image_plate.path("M 480 620 L 520 620 L 500 580 z");
-	var img6 = image_plate.path("M 550 620 L 590 620 L 570 580 z");
-	var img8 = image_plate.path("M 620 620 L 660 620 L 640 580 z");
+	img2 = image_plate.path("M 410 620 L 450 620 L 430 580 z");
+	img2.attr("opacity", 0.0);
+	img2.attr("title", "P");
+	img2.attr("cursor", "pointer");
+	img2.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(3, currentProject) + ")");
+	img2.attr("stroke-width", "0");
+	img2.click(function(){
+						currentImage   = 3;
+						loadImg(currentImage, currentProject);
+						});
 	
-	var img1 = image_plate.path("M 375 580 L 415 580 L 395 620 z");
-	var img3 = image_plate.path("M 445 580 L 485 580 L 465 620 z");
-	var img5 = image_plate.path("M 515 580 L 555 580 L 535 620 z");
-	var img7 = image_plate.path("M 585 580 L 625 580 L 605 620 z");
-	var img9 = image_plate.path("M 655 580 L 695 580 L 675 620 z");
+	img4 = image_plate.path("M 480 620 L 520 620 L 500 580 z");
+	img4.attr("opacity", 0.0);
+	img4.attr("title", "P");
+	img4.attr("cursor", "pointer");
+	img4.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(5, currentProject) + ")");
+	img4.attr("stroke-width", "0");
+	img4.click(function(){
+						currentImage   = 5;
+						loadImg(currentImage, currentProject);
+						});
 	
 	
+	img6 = image_plate.path("M 550 620 L 590 620 L 570 580 z");
+	img6.attr("opacity", 0.0);
+	img6.attr("title", "P");
+	img6.attr("cursor", "pointer");
+	img6.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(7, currentProject) + ")");
+	img6.attr("stroke-width", "0");
+	img6.click(function(){
+						currentImage   = 7;
+						loadImg(currentImage, currentProject);
+						});
+	
+	img8 = image_plate.path("M 620 620 L 660 620 L 640 580 z");
+	img8.attr("opacity", 0.0);
+	img8.attr("title", "P");
+	img8.attr("cursor", "pointer");
+	img8.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(9, currentProject) + ")");
+	img8.attr("stroke-width", "0");
+	img8.click(function(){
+						currentImage   = 9;
+						loadImg(currentImage, currentProject);
+						});
+	
+	img1 = image_plate.path("M 375 580 L 415 580 L 395 620 z");
+	img1.attr("opacity", 0.0);
+	img1.attr("title", "P");
+	img1.attr("cursor", "pointer");
+	img1.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(2, currentProject) + ")");
+	img1.attr("stroke-width", "0");
+	img1.click(function(){
+						currentImage   = 2;
+						loadImg(currentImage, currentProject);
+						});
+						
+	img3 = image_plate.path("M 445 580 L 485 580 L 465 620 z");
+	img3.attr("opacity", 0.0);
+	img3.attr("title", "P");
+	img3.attr("cursor", "pointer");
+	img3.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(4, currentProject) + ")");
+	img3.attr("stroke-width", "0");
+	img3.click(function(){
+						currentImage   = 4;
+						loadImg(currentImage, currentProject);
+						});
+	
+	
+	img5 = image_plate.path("M 515 580 L 555 580 L 535 620 z");
+	img5.attr("opacity", 0.0);
+	img5.attr("title", "P");
+	img5.attr("cursor", "pointer");
+	img5.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(6, currentProject) + ")");
+	img5.attr("stroke-width", "0");
+	img5.click(function(){
+						currentImage   = 6;
+						loadImg(currentImage, currentProject);
+						});
+	
+	
+	
+	img7 = image_plate.path("M 585 580 L 625 580 L 605 620 z");
+	img7.attr("opacity", 0.0);
+	img7.attr("title", "P");
+	img7.attr("cursor", "pointer");
+	img7.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(8, currentProject) + ")");
+	img7.attr("stroke-width", "0");
+	img7.click(function(){
+						currentImage   = 8;
+						loadImg(currentImage, currentProject);
+						});
+	
+	
+	img9 = image_plate.path("M 655 580 L 695 580 L 675 620 z");
+	img9.attr("opacity", 0.0);
+	img9.attr("title", "P");
+	img9.attr("cursor", "pointer");
+	img9.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(10, currentProject) + ")");
+	img9.attr("stroke-width", "0");
+	img9.click(function(){
+						currentImage   = 10;
+						loadImg(currentImage, currentProject);
+						});
+						
+						
+	if (imageNav_set == null) {
+		imageNav_set = image_plate.set();
+		
+		imageNav_set.push(img0,
+						  img1,
+						  img2,
+						  img3,
+						  img4,
+						  img5,
+						  img6,
+						  img7,
+						  img8,
+						  img9);
+	}
+	
+	imageNav_set.animate({opacity: 1.0},
+							1000,
+							"<");					
 }
 
 function createMenuNav()
@@ -599,7 +855,7 @@ function createSieve()
 {
 	if (sieve_plate == null)
 	{
-		sieve_plate = Raphael(100, 100, 1100, 600);
+		sieve_plate = Raphael(100, 100, 1100, 460);
 		isSieveInit = true;
 	}
 
