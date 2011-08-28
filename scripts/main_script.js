@@ -13,7 +13,8 @@ $(document).ready(function()
 		
 		$("#_image_strat").css("display", "block");
 		$("#_image_strat").animate({opacity:1.0},
-									2000);
+									1000,
+									clearAll);
 	}
 
 	function handleTextClick()
@@ -29,7 +30,8 @@ $(document).ready(function()
 		
 		$("#_text_strat").css("display", "block");
 		$("#_text_strat").animate({opacity: 1.0},
-									2000);
+									1000,
+									clearAll);
 	}
 	
 	function handleCodeClick()
@@ -45,7 +47,8 @@ $(document).ready(function()
 		
 		$("#_code_strat").css("display", "block");
 		$("#_code_strat").animate({opacity: 1.0},
-									2000);
+									1000,
+									clearAll);
 	}
 		
 	function handleAboutClick()
@@ -61,7 +64,15 @@ $(document).ready(function()
 		
 		$("#_about_strat").css("display", "block");
 		$("#_about_strat").animate({opacity: 1.0},
-									250);
+									250,
+									clearAll);
+	}
+	
+	function clearAll()
+	{
+		$(this).stop(true);
+		$(this).clearQueue();
+	
 	}
 
 	$('#_image').click(handleImageClick);

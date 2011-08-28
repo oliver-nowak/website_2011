@@ -3,6 +3,7 @@
 // Navigation Members
 var menu_plate = null;
 var menu_set = null;
+var current_state = null;
 
 var image_nav = null;
 var text_nav = null;
@@ -183,12 +184,94 @@ function navImageHome()
 								
 	$("#_home_strat").animate({opacity: 1.0},
 								1000);
-														
-	console.log( sSetA.attr("cx") );
+}
+
+function navToNewState(current_state, requested_state)
+{
+	$(this).stop(true);
+	$(this).clearQueue();
+		
+	var old_strat = "";							
+	switch(current_state) {
+		case 1:
+			old_strat = "about";
+		break;
+		
+		case 2:
+			old_strat = "code";
+		break;
+		
+		case 3:
+			old_strat = "text";
+		break;
+		
+		case 4:
+			old_strat = "image";
+		break;
+	}
+	
+	$("#_"+ old_strat + "_strat").css("display", "none");
+	$("#_"+ old_strat + "_strat").animate({opacity: 0.0},
+								500);
+
+	sSetA.animate({translation: "265 0"},
+					500,
+					">");
+					
+	sSetB.animate({translation: "-265 0"},
+					500,
+					">",
+					resetCode);
+					
+	resetSieve();
+	
+	sSetA.animate({translation: "-265 0"},
+					500,
+					">");
+					
+	sSetB.animate({translation: "265 0"},
+					500,
+					">");					
+	
+	var new_strat = "";
+	switch(requested_state) {
+		case 1:
+			selectAbout();
+			new_strat = "about";
+		break;
+		
+		case 2:
+			selectCode();
+			new_strat = "code";
+		break;
+		
+		case 3:
+			selectText();
+			new_strat = "text";
+		break;
+		
+		case 4:
+			selectImage();
+			new_strat = "image";
+		break;
+	}
+							
+	$("#_"+ new_strat +"_strat").css("display", "block");
+	$("#_"+ new_strat +"_strat").animate({opacity:1.0},
+									500, 
+									clearAnimation);	
+}
+
+function clearAnimation()
+{
+	$(this).stop(true);
+	$(this).clearQueue();
 }
 
 function selectAbout()
 {
+	current_state = 1;
+	
 	if (about_plate == null) {
 		about_plate = Raphael(100, 0, 1280, 1280);
 	}	
@@ -222,6 +305,8 @@ function selectAbout()
 
 function selectCode()
 {
+	current_state = 2;
+	
 	if (code_plate == null) {
 		code_plate = Raphael(100, 0, 1280, 1280);
 	}
@@ -263,6 +348,8 @@ function selectCode()
 
 function selectText()
 {
+	current_state = 3;
+	
 	if (text_plate == null) {
 		text_plate = Raphael(100, 0, 1280, 1280);
 	}
@@ -303,6 +390,8 @@ function selectText()
 
 function selectImage()
 {
+	current_state = 4;
+	
 	if (image_plate == null) {
 		image_plate = Raphael(100, 0, 1280, 1280);
 	}
@@ -816,6 +905,9 @@ function createMenuNav()
 	image_nav.attr("title", "view Images");
 	image_nav.attr("cursor", "pointer");
 	image_nav.attr("opacity", 0.0);
+	image_nav.click(function() { 
+					navToNewState(current_state, 4);
+					});
 
 	if (code_nav == null) {
 		code_nav = menu_plate.circle(40, 120, 20);
@@ -825,6 +917,9 @@ function createMenuNav()
 	code_nav.attr("title", "compile Code");
 	code_nav.attr("cursor", "pointer");
 	code_nav.attr("opacity", 0.0);
+	code_nav.click(function(){
+					navToNewState(current_state,2);
+					});
 	
 	if (text_nav == null) {
 		text_nav = menu_plate.path("M 20 200 L 60 200 L 40 160 z");
@@ -834,6 +929,9 @@ function createMenuNav()
 	text_nav.attr("title", "read Text");
 	text_nav.attr("cursor", "pointer");
 	text_nav.attr("opacity", 0.0);
+	text_nav.click(function(){
+					navToNewState(current_state, 3);
+					});
 	
 	if (about_nav == null) {
 		about_nav = menu_plate.text(40, 245, "?");
@@ -844,6 +942,9 @@ function createMenuNav()
 	about_nav.attr("title", "understand Me");
 	about_nav.attr("cursor", "pointer");
 	about_nav.attr("opacity", 0.0);
+	about_nav.click(function(){
+					navToNewState(current_state, 1);
+					});
 	
 	if (home_nav == null) {
 		home_nav = menu_plate.text(40, 305, "@");
@@ -855,6 +956,13 @@ function createMenuNav()
 	home_nav.attr("cursor", "pointer");
 	home_nav.attr("opacity", 0.0);
 }
+
+/*
+function selectStrat(requested_state)
+{
+	navToNewState(current_state, requested_state);
+}
+*/
 
 function test()
 {
