@@ -612,23 +612,8 @@ function configureImageElements()
 						currentImage   = 1;
 						currentProject = "amerika"; 
 						loadImg(currentImage, currentProject);
-						createImageNav();
-						});
-						
-	c0.hover(function(){$("#_image_body").html(image_amerika);
-						$("#_image_header").html("amerika");},
-			function(){$("#_image_body").html(image_text);
-						$("#_image_header").html("image");});
-						
-	////
-	c0.attr("title", "amerika");
-	c0.attr("cursor", "pointer");
-	c0.attr("fill", "#29ABE2");
-	c0.click(function(){
-						currentImage   = 1;
-						currentProject = "amerika"; 
-						loadImg(currentImage, currentProject);
-						createImageNav();
+						resetImageNav();
+						createImageNav("amerika");
 						});
 						
 	c0.hover(function(){$("#_image_body").html(image_amerika);
@@ -645,7 +630,8 @@ function configureImageElements()
 						currentImage   = 1;
 						currentProject = "olympia"; 
 						loadImg(currentImage, currentProject);
-						createImageNav();
+						resetImageNav();
+						createImageNav("olympia");
 						});
 						
 	c3.hover(function(){$("#_image_body").html(image_olympia);
@@ -660,7 +646,8 @@ function configureImageElements()
 						currentImage   = 1;
 						currentProject = "plasticity"; 
 						loadImg(currentImage, currentProject);
-						createImageNav();
+						resetImageNav();
+						createImageNav("plasticity");
 						});
 						
 	c15.hover(function(){$("#_image_body").html(image_plasticity);
@@ -676,7 +663,8 @@ function configureImageElements()
 						currentImage   = 1;
 						currentProject = "portrait"; 
 						loadImg(currentImage, currentProject);
-						createImageNav();
+						resetImageNav();
+						createImageNav("portrait");
 						});
 						
 	c6.hover(function(){$("#_image_body").html(image_portrait);
@@ -693,7 +681,8 @@ function configureImageElements()
 						currentImage   = 1;
 						currentProject = "potentia"; 
 						loadImg(currentImage, currentProject);
-						createImageNav();
+						resetImageNav();
+						createImageNav("potentia");
 						});
 						
 	c13.hover(function(){$("#_image_body").html(image_potentia);
@@ -709,7 +698,8 @@ function configureImageElements()
 						currentImage   = 1;
 						currentProject = "uncanny"; 
 						loadImg(currentImage, currentProject);
-						createImageNav();
+						resetImageNav();
+						createImageNav("uncanny");
 						});
 						
 	c17.hover(function(){$("#_image_body").html(image_uncanny);
@@ -767,7 +757,7 @@ function loadImg(selImage, selProj)
     .attr('src', '/assets/image/' + selProj + "/" + imgUrl);
 }
 
-function createImageNav()
+function createImageNav(currentProject)
 {
 	img0 = image_plate.path("M 340 620 L 380 620 L 360 580 z");
 	img0.attr("opacity", 0.0);
@@ -902,7 +892,7 @@ function createImageNav()
 	
 	imageNav_set.animate({opacity: 1.0},
 							1000,
-							"<");					
+							"<");				
 }
 
 function createMenuNav()
@@ -1097,6 +1087,12 @@ function resetImage()
 		image_plate.clear();
 		image_circle = null;
 	}
+}
+
+function resetImageNav()
+{
+	img0,img1,img2,img3,img4,img5,img6,img7,img8,img9 = null;
+	imageNav_set = null;
 }
 
 function resetSieve()
