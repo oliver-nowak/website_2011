@@ -107,7 +107,8 @@ function navCodeHome()
 
 	code_set.animate({opacity: 0.0},
 					1000,
-					">");
+					">",
+					resetCode);
 					
 	home_set.animate({opacity: 1.0},
 					1000,
@@ -134,7 +135,8 @@ function navTextHome()
 					
 	text_set.animate({opacity: 0.0},
 					1000,
-					">");
+					">",
+					resetText);
 					
 	home_set.animate({opacity: 1.0},
 					1000,
@@ -166,7 +168,8 @@ function navImageHome()
 	if (imageNav_set != null) {		
 		imageNav_set.animate({opacity: 0.0},
 								1000,
-								">");
+								">",
+								resetImage);
 	}
 						
 	home_set.animate({opacity: 1.0},
@@ -187,11 +190,11 @@ function navImageHome()
 function selectAbout()
 {
 	if (about_plate == null) {
-		about_plate = Raphael(0, 0, 1280, 1280);
+		about_plate = Raphael(100, 0, 1280, 1280);
 	}	
 	
 	if (about_circle == null) {
-		about_circle = about_plate.circle(640, 360, 512);
+		about_circle = about_plate.circle(530, 360, 512);
 	}
 	
 	about_circle.attr("opacity", 0.0);
@@ -919,10 +922,6 @@ function createSieve()
 
 function renderSieve()
 {
-	console.log( sSetA.attr("cx") );
-
-/* 	sSetA.attr("cx", 0); */
-	
 	sSetA.attr("opacity", 0.0);
 	sSetA.attr("fill", "#cccccc");
 	sSetA.attr("stroke-width", "0");
@@ -936,10 +935,29 @@ function renderSieve()
 	sSetB.animate({opacity: 1.0, translation:"265 0"}, 500, "<");
 }
 
+function resetCode()
+{
+	code_plate.clear();
+}
+
+function resetText()
+{
+	text_plate.clear();
+}
+
+function resetImage()
+{
+	image_plate.clear();
+}
+
 function resetSieve()
 {
 	sSetA.translate(-265, 0);	
 	sSetB.translate(265, 0);
+	
+	sieve_plate.clear();
+	sieve_plate = null;
+	isSieveInit = false;
 }
 
 /*
