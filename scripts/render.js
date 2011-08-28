@@ -1,7 +1,6 @@
 //TODO: add video projects
 //TODO: add new image projects
 //TODO: add favicon
-//TODO: add twitter timeline - most recent tweet
 //TODO: add affordance cue for selected project
 //TODO: add affordance cue for selected image
 //TODO: add alt attr to all tags
@@ -103,6 +102,8 @@ function navAboutHome()
 	$("#_home_strat").animate({opacity: 1.0},
 							 100);	
 							 
+	$("#twitter_container").animate({opacity:1.0}, 100);							 
+							 
 	resetAll();							
 }
 
@@ -131,7 +132,9 @@ function navCodeHome()
 								100);
 								
 	$("#_home_strat").animate({opacity: 1.0},
-							 100);		
+							 100);	
+							 
+	$("#twitter_container").animate({opacity:1.0}, 100);								 	
 							 
 	resetAll();					
 }
@@ -161,7 +164,9 @@ function navTextHome()
 								100);
 								
 	$("#_home_strat").animate({opacity: 1.0},
-							 100);		
+							 100);	
+							 
+	$("#twitter_container").animate({opacity:1.0}, 100);								 	
 							 
 	resetAll();			
 }
@@ -198,6 +203,8 @@ function navImageHome()
 								
 	$("#_home_strat").animate({opacity: 1.0},
 								100);
+								
+	$("#twitter_container").animate({opacity:1.0}, 100);									
 								
 	resetAll();							
 }
@@ -1153,6 +1160,7 @@ function resetMenu()
 {
 	if (menu_plate != null) {
 		menu_plate.clear();
+		menu_plate.remove();
 		menu_plate = null;
 		menu_set = null;
 		image_nav = null;
@@ -1167,6 +1175,7 @@ function resetAbout()
 {
 	if (about_plate != null) {
 		about_plate.clear();
+		about_plate.remove();
 		about_circle = null;
 	}
 }
@@ -1175,6 +1184,7 @@ function resetCode()
 {
 	if (code_plate != null) {
 		code_plate.clear();
+		code_plate.remove();
 		code_circle = null;
 	}
 }
@@ -1183,6 +1193,7 @@ function resetText()
 {
 	if (text_plate != null) {
 		text_plate.clear();
+		text_plate.remove();
 		text_circle = null;
 	}
 }
@@ -1191,6 +1202,7 @@ function resetImage()
 {
 	if (image_plate != null) {
 		image_plate.clear();
+		image_plate.remove();
 		image_circle = null;
 	}
 }
@@ -1208,6 +1220,7 @@ function resetSieve()
 	
 	if (sieve_plate != null) {
 		sieve_plate.clear();
+		sieve_plate.remove();
 	}
 	sieve_plate = null;
 	isSieveInit = false;

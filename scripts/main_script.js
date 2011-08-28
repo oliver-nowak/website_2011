@@ -9,6 +9,8 @@ $(document).ready(function()
 		$("#_home_strat").animate({opacity:0.0},
 						250);
 						
+		$("#twitter_container").animate({opacity:0.0}, 250);				
+						
 		selectImage();
 		
 		$("#_image_strat").css("display", "block");
@@ -25,6 +27,8 @@ $(document).ready(function()
 						
 		$("#_home_strat").animate({opacity: 0.0},
 						250);
+						
+		$("#twitter_container").animate({opacity:0.0}, 250);					
 						
 		selectText();
 		
@@ -43,6 +47,8 @@ $(document).ready(function()
 		$("#_home_strat").animate({opacity: 0.0},
 								 250);
 								 
+		$("#twitter_container").animate({opacity:0.0}, 250);							 
+								 
 		selectCode();
 		
 		$("#_code_strat").css("display", "block");
@@ -60,6 +66,8 @@ $(document).ready(function()
 		$("#_home_strat").animate({opacity: 0.0},
 							 250);
 							 
+		$("#twitter_container").animate({opacity:0.0}, 250);						 
+							 
 		selectAbout();
 		
 		$("#_about_strat").css("display", "block");
@@ -74,6 +82,7 @@ $(document).ready(function()
 		$(this).clearQueue();
 		
 		$("#_home_strat").css("opacity", 0.0);
+		$("#twitter_container").css("opacity", 0.0);	
 	}
 
 	$('#_image').click(handleImageClick);
@@ -92,5 +101,4 @@ $(document).ready(function()
 	$('#_about').hover(function() {$(this).addClass('mouseOver')}, 
 					   function() {$(this).removeClass('mouseOver')});
 	
-
 });
