@@ -1,4 +1,5 @@
-//TODO: hover over new image project should fade current image and show hovered project info
+//TODO: fix hover over new image project should fade current image and show hovered project info
+//TODO: fix project title should stick after selection
 //TODO: add video projects
 //TODO: add new image projects
 //TODO: add favicon
@@ -81,7 +82,7 @@ var image_amerika = "This series of images depict the paranoia and isolationism 
 var image_olympia = "Who we are:<br><br>alienated, dehumanized, emotionally amputated.<br><br><br><br>yes even you";
 var image_plasticity = "Depictions of industrialized bodies and globalized minds where the question 'what are you hiding?' replaces 'what do you know?'";
 var image_portrait = "Personal Images.<br><br>squandered potential<br>misguided love<br>my skin is latex<br>my body, biomechanic";
-var image_potentia = "In this series I take the first proto-films from Edison, Lumiere, LePrince, et al and pixel-splice them into one integrated image.<br><br>Pixel-splicing is a technique I devised that comprehensively integrates all of the frames of a proto-film into an image.<br><br>As a result, the image contains content information from every frame. This is different from a more traditional photoshop approach of layering the frames over each other.<br><br>Please see the text 'In Potentia' in TEXT-->In Potentia for a more technical and critical analysis.";
+var image_potentia = "In this series I take the first proto-films from Edison, Lumiere, LePrince, et al and pixel-splice them into one integrated image.<br><br>Pixel-splicing is a technique I devised that comprehensively integrates all of the frames of a proto-film into an image.<br><br>As a result, the image contains content information from every frame. This is different from a more traditional photoshop approach of layering the frames over each other.<br><br>Please see the text <em>'In Potentia'</em> for a more technical and critical analysis.";
 var image_uncanny = "This series uses ordinary household objects to conflate the still-life, the landscape and the portrait into one image.<br><br>Everything you see is done 'in-camera'. No digital manipulation was used to create these pictures.<br><br>By juxtaposing hardware into a landscape, I suggest a fruitful symbiosis between nature and the constructed, the digital and the analog, truth as we see it & truth as we know it.";
 
 function navAboutHome()
