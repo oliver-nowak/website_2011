@@ -1,11 +1,12 @@
-//TODO: fix hover over new image project should fade current image and show hovered project info
-//TODO: fix project title should stick after selection
 //TODO: add video projects
 //TODO: add new image projects
 //TODO: add favicon
 //TODO: add twitter timeline - most recent tweet
 //TODO: add affordance cue for selected project
 //TODO: add affordance cue for selected image
+//TODO: add alt attr to all tags
+//TODO: add metadata tags
+//TODO: add humans.txt
 
 // Navigation Members
 var menu_plate = null;
@@ -405,6 +406,7 @@ function selectText()
 function selectImage()
 {
 	current_state = 4;
+	currentProject = "image";
 	
 	if (image_plate == null) {
 		image_plate = Raphael(100, 0, 1280, 1280);
@@ -603,31 +605,62 @@ function configureTextElements()
 						$("#_text_header").html("text");});
 }
 
+function imageHover(requestedProject)
+{
+	$("#_image_body").html( eval("image_"+requestedProject) );
+	$("#_image_header").html( eval(requestedProject + "_header") );	
+}
+
+function resetImageHover()
+{
+	$("#_image_body").html(image_text);
+	$("#_image_header").html("image");
+	
+	$("#_image_body").show();
+	$("#_image_header").show();
+	
+	$("#loader").hide();
+	$("#_imageInfo").hide();
+}
+
 function configureImageElements()
 {
+	resetImageHover();
+	
 	c0.attr("title", "amerika");
 	c0.attr("cursor", "pointer");
 	c0.attr("fill", "#29ABE2");
 	c0.click(function(){
+						$("#_image_header").html("amerika")
 						currentImage   = 1;
 						currentProject = "amerika"; 
 						loadImg(currentImage, currentProject);
 						resetImageNav();
 						createImageNav("amerika");
 						labelImage(currentImage, currentProject);
-						});
+						});				
+	c0.hover(function(){
+						if (currentProject == "image") {
+							$("#_image_body").html(image_amerika);
+							$("#_image_header").html("amerika");
+						}
 						
-	c0.hover(function(){$("#_image_body").html(image_amerika);
-						$("#_image_header").html("amerika");},
-			function(){$("#_image_body").html(image_text);
-						$("#_image_header").html("image");});
-	
+						},
+						function(){
+							if (currentProject == "image") {
+								resetImageHover();
+							} else {
+								imageHover(currentProject);
+							}	
+						});
+			
 	////
 	
 	c3.attr("title", "olympia");
 	c3.attr("cursor", "pointer");
 	c3.attr("fill", "#29ABE2");
 	c3.click(function(){
+						$("#_image_header").html("mr.torn + olympia");
 						currentImage   = 1;
 						currentProject = "olympia"; 
 						loadImg(currentImage, currentProject);
@@ -636,15 +669,25 @@ function configureImageElements()
 						labelImage(currentImage, currentProject);
 						});
 						
-	c3.hover(function(){$("#_image_body").html(image_olympia);
-						$("#_image_header").html("mr.torn + olympia");},
-			function(){$("#_image_body").html(image_text);
-						$("#_image_header").html("image");});
+	c3.hover(function(){
+						if (currentProject == "image") {
+							$("#_image_body").html(image_olympia);
+							$("#_image_header").html("mr.torn + olympia");
+						}
+						},
+			function(){
+				if (currentProject == "image") {
+					resetImageHover();
+				} else {
+					imageHover(currentProject);
+				}
+			});
 	////
 	c15.attr("title", "plasticity");
 	c15.attr("cursor", "pointer");
 	c15.attr("fill", "#29ABE2");
 	c15.click(function(){
+						$("#_image_header").html("plasticity");
 						currentImage   = 1;
 						currentProject = "plasticity"; 
 						loadImg(currentImage, currentProject);
@@ -652,16 +695,26 @@ function configureImageElements()
 						createImageNav("plasticity");
 						});
 						
-	c15.hover(function(){$("#_image_body").html(image_plasticity);
-						$("#_image_header").html("plasticity");},
-			function(){$("#_image_body").html(image_text);
-						$("#_image_header").html("image");});
+	c15.hover(function(){
+						if (currentProject == "image") {
+							$("#_image_body").html(image_plasticity);
+							$("#_image_header").html("plasticity");
+						}
+						},
+			function(){
+				if (currentProject == "image") {
+					resetImageHover();
+				} else {
+					imageHover(currentProject);
+				}		
+			});
 	
 	///
 	c6.attr("title", "portrait");
 	c6.attr("cursor", "pointer");
 	c6.attr("fill", "#29ABE2");
 	c6.click(function(){
+						$("#_image_header").html("portraits");
 						currentImage   = 1;
 						currentProject = "portrait"; 
 						loadImg(currentImage, currentProject);
@@ -670,10 +723,19 @@ function configureImageElements()
 						labelImage(currentImage, currentProject);
 						});
 						
-	c6.hover(function(){$("#_image_body").html(image_portrait);
-						$("#_image_header").html("portraits");},
-			function(){$("#_image_body").html(image_text);
-						$("#_image_header").html("image");});
+	c6.hover(function(){
+						if (currentProject == "image") {
+							$("#_image_body").html(image_portrait);
+							$("#_image_header").html("portraits");
+						}
+						},
+			function(){
+				if (currentProject == "image") {
+					resetImageHover();
+				} else {
+					imageHover(currentProject);
+				}
+			});
 	
 	////
 	
@@ -681,6 +743,7 @@ function configureImageElements()
 	c13.attr("cursor", "pointer");
 	c13.attr("fill", "#29ABE2");
 	c13.click(function(){
+						$("#_image_header").html("in Potentia");
 						currentImage   = 1;
 						currentProject = "potentia"; 
 						loadImg(currentImage, currentProject);
@@ -689,16 +752,26 @@ function configureImageElements()
 						labelImage(currentImage, currentProject);
 						});
 						
-	c13.hover(function(){$("#_image_body").html(image_potentia);
-						$("#_image_header").html("in Potentia");},
-			function(){$("#_image_body").html(image_text);
-						$("#_image_header").html("image");});
+	c13.hover(function(){
+						if (currentProject == "image") {
+							$("#_image_body").html(image_potentia);
+							$("#_image_header").html("in Potentia");
+						}
+						},
+			function(){
+				if (currentProject == "image") {
+					resetImageHover();
+				} else {
+					imageHover(currentProject);
+				}
+			});
 	////
 	
 	c17.attr("title", "uncanny");
 	c17.attr("cursor", "pointer");
 	c17.attr("fill", "#29ABE2");
 	c17.click(function(){
+						$("#_image_header").html("uncanny valley");
 						currentImage   = 1;
 						currentProject = "uncanny"; 
 						loadImg(currentImage, currentProject);
@@ -707,10 +780,19 @@ function configureImageElements()
 						labelImage(currentImage, currentProject);
 						});
 						
-	c17.hover(function(){$("#_image_body").html(image_uncanny);
-						$("#_image_header").html("uncanny valley");},
-			function(){$("#_image_body").html(image_text);
-						$("#_image_header").html("image");});
+	c17.hover(function(){
+							if (currentProject == "image") {
+								$("#_image_body").html(image_uncanny);
+								$("#_image_header").html("uncanny valley");
+							}
+						},
+			function(){
+				if (currentProject == "image") {
+					resetImageHover();
+				} else {
+					imageHover(currentProject);
+				}
+			});
 }
 
 function getImgUrl(selImage, selProj)
@@ -748,6 +830,8 @@ function loadImg(selImage, selProj)
 	var imgUrl = getImgUrl(selImage, selProj);
 	
 	$("#_image_body").css("display", "none");
+	$("#loader").show();
+	$("#_imageInfo").show();
 	
 	$(image).load(function () { 
       $(this).hide();

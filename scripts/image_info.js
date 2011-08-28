@@ -1,4 +1,5 @@
 // amerika
+var amerika_header = "amerika";
 var amerika_001 = "digital c-print | 20x16 in. | 2005 | am1";
 var amerika_002 = "digital c-print | 20x16 in. | 2005 | am2";
 var amerika_003 = "digital c-print | 16x20 in. | 2005 | am3";
@@ -11,6 +12,7 @@ var amerika_009 = "digital c-print | 20x20 in. | 2005 | am9";
 var amerika_010 = "digital c-print | 20x16 in. | 2005 | am10";
 
 // olympia
+var olympia_header = "mr.torn + olympia";
 var olympia_001 = "digital c-print | 20x16 in. | 2005 - 2006 | ol1";
 var olympia_002 = "digital c-print | 16x20 in. | 2005 - 2006 | ol2";
 var olympia_003 = "digital c-print | 20x16 in. | 2005 - 2006 | ol3";
@@ -23,6 +25,7 @@ var olympia_009 = "digital c-print | 12x20 in. | 2005 - 2006 | ol9";
 var olympia_010 = "digital c-print | 20x12 in. | 2005 - 2006 | ol10";
 
 // plasticity
+var plasticity_header = "plasticity";
 var plasticity_001 = "digital c-print | 20x20 in. | 2006 | p1";
 var plasticity_002 = "digital c-print | 16x20 in. | 2006 | p2";
 var plasticity_003 = "digital c-print | 20x16 in. | 2006 | p3";
@@ -35,6 +38,7 @@ var plasticity_009 = "digital c-print | 12x20 in. | 2006 | p9";
 var plasticity_010 = "digital c-print | 20x16 in. | 2006 | p10";
 
 // portrait
+var portrait_header = "portraits";
 var portrait_001 = "b/w lith print | 16x20 in. | 2002 - 2007 | jewel - whiskey bar - seattle";
 var portrait_002 = "digital c-print | 16x20 in. | 2002 - 2007 | charlotte - brooklyn";
 var portrait_003 = "b/w lith print | 16x20 in. | 2002 - 2007 | sister machine gun - seattle";
@@ -47,6 +51,7 @@ var portrait_009 = "b/w lith print | 20x16 in. | 2002 - 2007 | flash, jewel, dan
 var portrait_010 = "b/w lith print | 16x20 in. | 2002 - 2007 | flash - birthday at satellite lounge - seattle";
 
 // potentia
+var potentia_header = "in Potentia";
 var potentia_001 = "digital c-print | 30x30 in. | 2008 | pixel.Spliced: [Edison’s First Sound Film, Thomas Edison, 1894] 494 frames";
 var potentia_002 = "digital c-print | 30x30 in. | 2008 | pixel.Spliced: [Card Party, Lumiere Bros., 1896] 1401 frames";
 var potentia_003 = "digital c-print | 30x30 in. | 2008 | pixel.Spliced: [Dickson Greeting, William Dickson, 1894], 75 frames";
@@ -59,6 +64,7 @@ var potentia_009 = "digital c-print | 30x30 in. | 2008 | pixel.Spliced: [Horse G
 var potentia_010 = "digital c-print | 30x30 in. | 2008 | pixel.Spliced: [Roundhay Garden, Louis LePrince, 1888], 45 frames";
 
 // uncanny
+var uncanny_header = "uncanny valley";
 var uncanny_001 = "digital c-print | 16x20 in. | 2007 - 2008 | un1";
 var uncanny_002 = "digital c-print | 20x16 in. | 2007 - 2008 | un2";
 var uncanny_003 = "digital c-print | 20x16 in. | 2007 - 2008 | un3";
