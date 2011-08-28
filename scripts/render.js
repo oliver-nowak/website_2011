@@ -1,4 +1,11 @@
-//TODO: add image titles
+//TODO: add image titles to tooltip
+//TODO: image thumbs dont refresh on new project select
+//TODO: add image info
+//TODO: hover over new image project should fade current image and show hovered project info
+//TODO: add video projects
+//TODO: add new image projects
+//TODO: add favicon
+//TODO: add twitter timeline - most recent tweet
 
 // Navigation Members
 var menu_plate = null;
@@ -736,14 +743,14 @@ function loadImg(selImage, selProj)
 	
 	$("#_image_body").css("display", "none");
 	
-	$(image).load(function () {
-      // set the image hidden by default    
+	$(image).load(function () { 
       $(this).hide();
     
       // with the holding div #loader, apply:
       $('#loader')
         // remove the loading class (so no background spinner), 
-        .removeClass('loading')
+        //.removeClass('_loading')
+        
         // then insert our image
         .append(this);
     
@@ -964,18 +971,6 @@ function createMenuNav()
 	home_nav.attr("opacity", 0.0);
 }
 
-/*
-function selectStrat(requested_state)
-{
-	navToNewState(current_state, requested_state);
-}
-*/
-
-function test()
-{
-	alert("test");
-}
-
 function createSieve()
 {
 	if (sieve_plate == null)
@@ -1070,8 +1065,6 @@ function resetMenu()
 		about_nav = null;
 		home_nav = null;
 	}	
-	
-	
 }
 
 function resetAbout()

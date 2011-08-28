@@ -115,6 +115,11 @@ body
 	width: 460px;	
 }
 
+._loading
+{
+	background: url(../assets/ajax-loader.gif) no-repeat center center;
+}
+
 ._imgContainer
 {
 	display: block;
