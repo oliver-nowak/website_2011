@@ -1,11 +1,10 @@
-//TODO: add image titles to tooltip
-//TODO: image thumbs dont refresh on new project select
-//TODO: add image info
 //TODO: hover over new image project should fade current image and show hovered project info
 //TODO: add video projects
 //TODO: add new image projects
 //TODO: add favicon
 //TODO: add twitter timeline - most recent tweet
+//TODO: add affordance cue for selected project
+//TODO: add affordance cue for selected image
 
 // Navigation Members
 var menu_plate = null;
@@ -614,6 +613,7 @@ function configureImageElements()
 						loadImg(currentImage, currentProject);
 						resetImageNav();
 						createImageNav("amerika");
+						labelImage(currentImage, currentProject);
 						});
 						
 	c0.hover(function(){$("#_image_body").html(image_amerika);
@@ -632,6 +632,7 @@ function configureImageElements()
 						loadImg(currentImage, currentProject);
 						resetImageNav();
 						createImageNav("olympia");
+						labelImage(currentImage, currentProject);
 						});
 						
 	c3.hover(function(){$("#_image_body").html(image_olympia);
@@ -665,6 +666,7 @@ function configureImageElements()
 						loadImg(currentImage, currentProject);
 						resetImageNav();
 						createImageNav("portrait");
+						labelImage(currentImage, currentProject);
 						});
 						
 	c6.hover(function(){$("#_image_body").html(image_portrait);
@@ -683,6 +685,7 @@ function configureImageElements()
 						loadImg(currentImage, currentProject);
 						resetImageNav();
 						createImageNav("potentia");
+						labelImage(currentImage, currentProject);
 						});
 						
 	c13.hover(function(){$("#_image_body").html(image_potentia);
@@ -700,6 +703,7 @@ function configureImageElements()
 						loadImg(currentImage, currentProject);
 						resetImageNav();
 						createImageNav("uncanny");
+						labelImage(currentImage, currentProject);
 						});
 						
 	c17.hover(function(){$("#_image_body").html(image_uncanny);
@@ -723,13 +727,24 @@ function getImgUrl(selImage, selProj)
 	return _url;
 }
 
+function getImgLabel(selImage, selProj)
+{
+	var _url = "";
+	var pad = "";
+	if (selImage == 10) { 
+		pad = "0";
+	} else {
+		pad = "00";
+	}
+	
+	_url = selProj + "_" + pad + selImage;
+	
+	return _url;
+}
+
 function loadImg(selImage, selProj)
 {
-	console.log(selImage + " : " + selProj);
-	
 	var imgUrl = getImgUrl(selImage, selProj);
-	
-	console.log(imgUrl);
 	
 	$("#_image_body").css("display", "none");
 	
@@ -757,121 +772,127 @@ function loadImg(selImage, selProj)
     .attr('src', '/assets/image/' + selProj + "/" + imgUrl);
 }
 
+function labelImage(selImage, selProj)
+{
+	var imgInfo = getImgLabel(selImage, selProj);
+	$("#_imageInfo").html( eval(imgInfo) );
+}
+
 function createImageNav(currentProject)
 {
 	img0 = image_plate.path("M 340 620 L 380 620 L 360 580 z");
 	img0.attr("opacity", 0.0);
-	img0.attr("title", "American Dream");
 	img0.attr("cursor", "pointer");
 	img0.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(1, currentProject) + ")");
 	img0.attr("stroke-width", "0");
 	img0.click(function(){
 						currentImage   = 1;
 						loadImg(currentImage, currentProject);
+						labelImage(currentImage, currentProject);
 						});
 	
 	img2 = image_plate.path("M 410 620 L 450 620 L 430 580 z");
 	img2.attr("opacity", 0.0);
-	img2.attr("title", "P");
 	img2.attr("cursor", "pointer");
 	img2.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(3, currentProject) + ")");
 	img2.attr("stroke-width", "0");
 	img2.click(function(){
 						currentImage   = 3;
 						loadImg(currentImage, currentProject);
+						labelImage(currentImage, currentProject);
 						});
 	
 	img4 = image_plate.path("M 480 620 L 520 620 L 500 580 z");
 	img4.attr("opacity", 0.0);
-	img4.attr("title", "P");
 	img4.attr("cursor", "pointer");
 	img4.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(5, currentProject) + ")");
 	img4.attr("stroke-width", "0");
 	img4.click(function(){
 						currentImage   = 5;
 						loadImg(currentImage, currentProject);
+						labelImage(currentImage, currentProject);
 						});
 	
 	
 	img6 = image_plate.path("M 550 620 L 590 620 L 570 580 z");
 	img6.attr("opacity", 0.0);
-	img6.attr("title", "P");
 	img6.attr("cursor", "pointer");
 	img6.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(7, currentProject) + ")");
 	img6.attr("stroke-width", "0");
 	img6.click(function(){
 						currentImage   = 7;
 						loadImg(currentImage, currentProject);
+						labelImage(currentImage, currentProject);
 						});
 	
 	img8 = image_plate.path("M 620 620 L 660 620 L 640 580 z");
 	img8.attr("opacity", 0.0);
-	img8.attr("title", "P");
 	img8.attr("cursor", "pointer");
 	img8.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(9, currentProject) + ")");
 	img8.attr("stroke-width", "0");
 	img8.click(function(){
 						currentImage   = 9;
 						loadImg(currentImage, currentProject);
+						labelImage(currentImage, currentProject);
 						});
 	
 	img1 = image_plate.path("M 375 580 L 415 580 L 395 620 z");
 	img1.attr("opacity", 0.0);
-	img1.attr("title", "P");
 	img1.attr("cursor", "pointer");
 	img1.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(2, currentProject) + ")");
 	img1.attr("stroke-width", "0");
 	img1.click(function(){
 						currentImage   = 2;
 						loadImg(currentImage, currentProject);
+						labelImage(currentImage, currentProject);
 						});
 						
 	img3 = image_plate.path("M 445 580 L 485 580 L 465 620 z");
 	img3.attr("opacity", 0.0);
-	img3.attr("title", "P");
 	img3.attr("cursor", "pointer");
 	img3.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(4, currentProject) + ")");
 	img3.attr("stroke-width", "0");
 	img3.click(function(){
 						currentImage   = 4;
 						loadImg(currentImage, currentProject);
+						labelImage(currentImage, currentProject);
 						});
 	
 	
 	img5 = image_plate.path("M 515 580 L 555 580 L 535 620 z");
 	img5.attr("opacity", 0.0);
-	img5.attr("title", "P");
 	img5.attr("cursor", "pointer");
 	img5.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(6, currentProject) + ")");
 	img5.attr("stroke-width", "0");
 	img5.click(function(){
 						currentImage   = 6;
 						loadImg(currentImage, currentProject);
+						labelImage(currentImage, currentProject);
 						});
 	
 	
 	
 	img7 = image_plate.path("M 585 580 L 625 580 L 605 620 z");
 	img7.attr("opacity", 0.0);
-	img7.attr("title", "P");
 	img7.attr("cursor", "pointer");
 	img7.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(8, currentProject) + ")");
 	img7.attr("stroke-width", "0");
 	img7.click(function(){
 						currentImage   = 8;
 						loadImg(currentImage, currentProject);
+						labelImage(currentImage, currentProject);
 						});
 	
 	
 	img9 = image_plate.path("M 655 580 L 695 580 L 675 620 z");
 	img9.attr("opacity", 0.0);
-	img9.attr("title", "P");
 	img9.attr("cursor", "pointer");
 	img9.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(10, currentProject) + ")");
 	img9.attr("stroke-width", "0");
 	img9.click(function(){
 						currentImage   = 10;
 						loadImg(currentImage, currentProject);
+						labelImage(currentImage, currentProject);
 						});
 						
 						

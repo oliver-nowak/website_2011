@@ -127,3 +127,12 @@ body
 	top: 10px;
 	text-align: center;
 }
+
+._imageInfo
+{
+	display: block;
+	position: relative;
+	font-size: 12px;
+	text-align: center;
+	top: 15px;
+}
