@@ -1176,6 +1176,7 @@ function resetAbout()
 	if (about_plate != null) {
 		about_plate.clear();
 		about_plate.remove();
+		about_plate = null;
 		about_circle = null;
 	}
 }
@@ -1185,6 +1186,7 @@ function resetCode()
 	if (code_plate != null) {
 		code_plate.clear();
 		code_plate.remove();
+		code_plate = null;
 		code_circle = null;
 	}
 }
@@ -1194,6 +1196,7 @@ function resetText()
 	if (text_plate != null) {
 		text_plate.clear();
 		text_plate.remove();
+		text_plate = null;
 		text_circle = null;
 	}
 }
@@ -1203,6 +1206,7 @@ function resetImage()
 	if (image_plate != null) {
 		image_plate.clear();
 		image_plate.remove();
+		image_plate = null;
 		image_circle = null;
 	}
 }
