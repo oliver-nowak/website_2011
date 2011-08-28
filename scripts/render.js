@@ -6,6 +6,7 @@
 //TODO: add alt attr to all tags
 //TODO: add metadata tags
 //TODO: add humans.txt
+//TODO: delete imageHover() references in configureImageElements() - not needed
 
 // Navigation Members
 var menu_plate = null;
@@ -84,6 +85,13 @@ var image_plasticity = "Depictions of industrialized bodies and globalized minds
 var image_portrait = "Personal Images.<br><br>squandered potential<br>misguided love<br>my skin is latex<br>my body, biomechanic";
 var image_potentia = "In this series I take the first proto-films from Edison, Lumiere, LePrince, et al and pixel-splice them into one integrated image.<br><br>Pixel-splicing is a technique I devised that comprehensively integrates all of the frames of a proto-film into an image.<br><br>As a result, the image contains content information from every frame. This is different from a more traditional photoshop approach of layering the frames over each other.<br><br>Please see the text <em>'In Potentia'</em> for a more technical and critical analysis.";
 var image_uncanny = "This series uses ordinary household objects to conflate the still-life, the landscape and the portrait into one image.<br><br>Everything you see is done 'in-camera'. No digital manipulation was used to create these pictures.<br><br>By juxtaposing hardware into a landscape, I suggest a fruitful symbiosis between nature and the constructed, the digital and the analog, truth as we see it & truth as we know it.";
+
+// VIDEO text
+var video_b41 = "This piece is a semi-literate, mostly abstract, somewhat amateurish critical exploration into the history of 'indexical reproduction'.";
+var video_behind = "This video was supposed to be my pre-thesis year summary analysis of my work so far (in 2007).<br><br>However, ironically the motherboard on my computer fried the day before my presentation, resulting in a shorter, more traditional, more reliable paper-based report.<br><br>The title references the POST sequence that computers run to check themselves for hardware failure.";
+var video_heart = "Louis LePrince's Roundhay Garden (1888) is credited as the earliest motion picture.<br><br>This single-channel video divides the frame into 'zones' - one zone per frame. Each zone is set to its relative frame. For example, the second zone is set to frame #2, the third zone to frame #3, etc.<br><br>The film is begun and the individual frames cycle through the sum of all frames from their respective starting point.";
+var video_plasticity = "A short film produced in 2000. Directed by Brian Forrest. Screenplay co-written by Oliver Nowak from the original play by Oliver Nowak.";
+var video_reel = "An exploration of the liminal space between the still-image and the motion-picture.<br><br>Not quite a screen-saver, not quite a single-channel video, not quite a still-image: these pieces exist on the fringe of the digital medium as evidence of its plasticity.";
 
 function navAboutHome()
 {
@@ -614,8 +622,11 @@ function configureTextElements()
 
 function imageHover(requestedProject)
 {
+/*
+
 	$("#_image_body").html( eval("image_"+requestedProject) );
 	$("#_image_header").html( eval(requestedProject + "_header") );	
+*/
 }
 
 function resetImageHover()
@@ -661,6 +672,30 @@ function configureImageElements()
 							}	
 						});
 			
+	////
+	c1.attr("title", "b41");
+	c1.attr("cursor", "pointer");
+	c1.attr("fill", "#29ABE2");
+	c1.click(function(){
+						$("#_image_header").html("b41");
+						currentImage = 0;
+						currentProject = "b41";
+						loadVideo(currentImage, currentProject);
+						});				
+	c1.hover(function(){
+						if (currentProject == "image") {
+							$("#_image_body").html(video_b41);
+							$("#_image_header").html("b41");
+						}
+						
+						},
+						function(){
+							if (currentProject == "image") {
+								resetImageHover();
+							} else {
+								imageHover(currentProject);
+							}	
+						});
 	////
 	
 	c3.attr("title", "olympia");
@@ -717,6 +752,30 @@ function configureImageElements()
 			});
 	
 	///
+	c5.attr("title", "my beating heart");
+	c5.attr("cursor", "pointer");
+	c5.attr("fill", "#29ABE2");
+	c5.click(function(){
+						$("#_image_header").html("my beating heart");
+						currentImage = 0;
+						currentProject = "heart";
+						loadVideo(currentImage, currentProject);
+						});				
+	c5.hover(function(){
+						if (currentProject == "image") {
+							$("#_image_body").html(video_behind);
+							$("#_image_header").html("my beating heart");
+						}
+						
+						},
+						function(){
+							if (currentProject == "image") {
+								resetImageHover();
+							} else {
+								imageHover(currentProject);
+							}	
+						});
+	//
 	c6.attr("title", "portrait");
 	c6.attr("cursor", "pointer");
 	c6.attr("fill", "#29ABE2");
@@ -745,6 +804,30 @@ function configureImageElements()
 			});
 	
 	////
+	c11.attr("title", "plasticity: 1.7");
+	c11.attr("cursor", "pointer");
+	c11.attr("fill", "#29ABE2");
+	c11.click(function(){
+						$("#_image_header").html("plasticity: 1.7");
+						currentImage = 0;
+						currentProject = "plasticity";
+						loadVideo(currentImage, currentProject);
+						});				
+	c11.hover(function(){
+						if (currentProject == "image") {
+							$("#_image_body").html(video_plasticity);
+							$("#_image_header").html("plasticity: 1.7");
+						}
+						
+						},
+						function(){
+							if (currentProject == "image") {
+								resetImageHover();
+							} else {
+								imageHover(currentProject);
+							}	
+						});
+	///
 	
 	c13.attr("title", "potentia");
 	c13.attr("cursor", "pointer");
@@ -773,6 +856,30 @@ function configureImageElements()
 				}
 			});
 	////
+	c16.attr("title", "beyond POST");
+	c16.attr("cursor", "pointer");
+	c16.attr("fill", "#29ABE2");
+	c16.click(function(){
+						$("#_image_header").html("beyond POST");
+						currentImage = 0;
+						currentProject = "behind";
+						loadVideo(currentImage, currentProject);
+						});				
+	c16.hover(function(){
+						if (currentProject == "image") {
+							$("#_image_body").html(video_behind);
+							$("#_image_header").html("beyond POST");
+						}
+						
+						},
+						function(){
+							if (currentProject == "image") {
+								resetImageHover();
+							} else {
+								imageHover(currentProject);
+							}	
+						});
+	///
 	
 	c17.attr("title", "uncanny");
 	c17.attr("cursor", "pointer");
@@ -800,6 +907,33 @@ function configureImageElements()
 					imageHover(currentProject);
 				}
 			});
+			
+	///
+	c19.attr("title", "re:elapses");
+	c19.attr("cursor", "pointer");
+	c19.attr("fill", "#29ABE2");
+	c19.click(function(){
+						$("#_image_header").html("re:elapses");
+						currentImage = 1;
+						currentProject = "reel";
+						loadVideo(currentImage, currentProject);
+						createImageNav(currentProject, true);
+						});				
+	c19.hover(function(){
+						if (currentProject == "image") {
+							$("#_image_body").html(video_reel);
+							$("#_image_header").html("re:elapses");
+						}
+						
+						},
+						function(){
+							if (currentProject == "image") {
+								resetImageHover();
+							} else {
+								imageHover(currentProject);
+							}	
+						});
+	///		
 }
 
 function getImgUrl(selImage, selProj)
@@ -864,13 +998,36 @@ function loadImg(selImage, selProj)
     .attr('src', '/assets/image/' + selProj + "/" + imgUrl);
 }
 
+function loadVideo(selVid, selProj)
+{
+	var vid = "";
+	var pad = "00";
+	
+	if (selVid > 0) {
+		vid = selProj + "_" + pad + selVid;
+	} else {
+		vid = selProj;
+	}
+
+	$("#_image_body").css("display", "none");
+	$("#loader").show();
+	
+	var video_tag = "<source src='/assets/video/"+ vid + ".iphone.mp4'/><source src='/assets/video/" + vid + ".theora.ogv' type='video/ogg; codecs=&#34;theora, vorbis&#34;'/><source src='/assets/video/" + vid + ".webmvp8.webm' type='video/webm; codecs=&#34;vp8, vorbis&#34;'/>";
+	
+	if ($("#_video_container").length < 1) {
+		$("#loader").append("<video id='_video_container' width='460' height='400' controls autoplay loop></video>");
+	}
+	
+	$("#_video_container").append( video_tag );
+}
+
 function labelImage(selImage, selProj)
 {
 	var imgInfo = getImgLabel(selImage, selProj);
 	$("#_imageInfo").html( eval(imgInfo) );
 }
 
-function createImageNav(currentProject)
+function createImageNav(currentProject, isVideo)
 {
 	img0 = image_plate.path("M 340 620 L 380 620 L 360 580 z");
 	img0.attr("opacity", 0.0);
@@ -885,95 +1042,135 @@ function createImageNav(currentProject)
 	
 	img2 = image_plate.path("M 410 620 L 450 620 L 430 580 z");
 	img2.attr("opacity", 0.0);
-	img2.attr("cursor", "pointer");
-	img2.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(3, currentProject) + ")");
-	img2.attr("stroke-width", "0");
-	img2.click(function(){
+	img2.attr("cursor", "pointer");	
+	if (isVideo) {
+		img2.attr("fill", "#FF9900");
+	} else {
+		img2.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(3, currentProject) + ")");
+		img2.click(function(){
 						currentImage   = 3;
 						loadImg(currentImage, currentProject);
 						labelImage(currentImage, currentProject);
 						});
+	}
+	img2.attr("stroke-width", "0");
+	
 	
 	img4 = image_plate.path("M 480 620 L 520 620 L 500 580 z");
 	img4.attr("opacity", 0.0);
 	img4.attr("cursor", "pointer");
-	img4.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(5, currentProject) + ")");
-	img4.attr("stroke-width", "0");
-	img4.click(function(){
+	if (isVideo) {
+		img4.attr("fill", "#FF9900");
+	} else {
+		img4.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(5, currentProject) + ")");
+		img4.click(function(){
 						currentImage   = 5;
 						loadImg(currentImage, currentProject);
 						labelImage(currentImage, currentProject);
 						});
+	}
+	img4.attr("stroke-width", "0");
+	
 	
 	
 	img6 = image_plate.path("M 550 620 L 590 620 L 570 580 z");
 	img6.attr("opacity", 0.0);
 	img6.attr("cursor", "pointer");
-	img6.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(7, currentProject) + ")");
-	img6.attr("stroke-width", "0");
-	img6.click(function(){
+	if (isVideo) {
+		img6.attr("fill", "#FF9900");
+	} else {
+		img6.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(7, currentProject) + ")");
+		img6.click(function(){
 						currentImage   = 7;
 						loadImg(currentImage, currentProject);
 						labelImage(currentImage, currentProject);
 						});
+	}
+	img6.attr("stroke-width", "0");
+	
 	
 	img8 = image_plate.path("M 620 620 L 660 620 L 640 580 z");
 	img8.attr("opacity", 0.0);
 	img8.attr("cursor", "pointer");
-	img8.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(9, currentProject) + ")");
-	img8.attr("stroke-width", "0");
-	img8.click(function(){
+	if (isVideo) {
+		img8.attr("fill", "#FF9900");
+	} else {
+		img8.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(9, currentProject) + ")");
+		img8.click(function(){
 						currentImage   = 9;
 						loadImg(currentImage, currentProject);
 						labelImage(currentImage, currentProject);
 						});
+	}
+	img8.attr("stroke-width", "0");
+	
 	
 	img1 = image_plate.path("M 375 580 L 415 580 L 395 620 z");
 	img1.attr("opacity", 0.0);
 	img1.attr("cursor", "pointer");
-	img1.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(2, currentProject) + ")");
-	img1.attr("stroke-width", "0");
-	img1.click(function(){
+	if (isVideo) {
+		img1.attr("fill", "#FF9900");
+	} else {
+		img1.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(2, currentProject) + ")");
+		img1.click(function(){
 						currentImage   = 2;
 						loadImg(currentImage, currentProject);
 						labelImage(currentImage, currentProject);
 						});
+	}
+	img1.attr("stroke-width", "0");
+	
 						
 	img3 = image_plate.path("M 445 580 L 485 580 L 465 620 z");
 	img3.attr("opacity", 0.0);
 	img3.attr("cursor", "pointer");
-	img3.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(4, currentProject) + ")");
-	img3.attr("stroke-width", "0");
-	img3.click(function(){
+	if (isVideo) {
+		img3.attr("fill", "#FF9900");
+	} else {
+		img3.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(4, currentProject) + ")");
+		img3.click(function(){
 						currentImage   = 4;
 						loadImg(currentImage, currentProject);
 						labelImage(currentImage, currentProject);
 						});
+	}
+	img3.attr("stroke-width", "0");
+	
 	
 	
 	img5 = image_plate.path("M 515 580 L 555 580 L 535 620 z");
 	img5.attr("opacity", 0.0);
 	img5.attr("cursor", "pointer");
-	img5.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(6, currentProject) + ")");
-	img5.attr("stroke-width", "0");
-	img5.click(function(){
+	if (isVideo) {
+		img5.attr("fill", "#FF9900");
+	} else {
+		img5.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(6, currentProject) + ")");
+		img5.click(function(){
 						currentImage   = 6;
 						loadImg(currentImage, currentProject);
 						labelImage(currentImage, currentProject);
 						});
+	}
+	img5.attr("stroke-width", "0");
+	
 	
 	
 	
 	img7 = image_plate.path("M 585 580 L 625 580 L 605 620 z");
 	img7.attr("opacity", 0.0);
 	img7.attr("cursor", "pointer");
-	img7.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(8, currentProject) + ")");
-	img7.attr("stroke-width", "0");
-	img7.click(function(){
+	if (isVideo) {
+		img7.attr("fill", "#FF9900");
+	} else {
+		img7.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(8, currentProject) + ")");
+		img7.click(function(){
 						currentImage   = 8;
 						loadImg(currentImage, currentProject);
 						labelImage(currentImage, currentProject);
 						});
+	}
+	img7.attr("stroke-width", "0");
+	
 	
 	
 	img9 = image_plate.path("M 655 580 L 695 580 L 675 620 z");
