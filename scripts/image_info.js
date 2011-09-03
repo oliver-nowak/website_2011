@@ -75,3 +75,27 @@ var uncanny_007 = "digital c-print | 20x16 in. | 2007 - 2008 | un7";
 var uncanny_008 = "digital c-print | 16x20 in. | 2007 - 2008 | un8";
 var uncanny_009 = "digital c-print | 20x16 in. | 2007 - 2008 | un9";
 var uncanny_010 = "digital c-print | 20x16 in. | 2007 - 2008 | un10";
+
+// b41
+var b41_001 = "single-channel video | 2006";
+
+// my beating heart
+var heart_001 = "single-channel video | 2007";
+
+// plasticity:1.7
+var plasticity17_001 = "singe-channel video | 2001";
+
+// beyond POST
+var behind_001 = "single-channel video | 2007";
+
+// re:elapses
+var reel_001 = "single-channel video | 2006";
+var reel_002 = "single-channel video | 2006";
+var reel_003 = "single-channel video | 2006";
+var reel_004 = "single-channel video | 2006";
+var reel_005 = "single-channel video | 2006";
+var reel_006 = "single-channel video | 2006";
+var reel_007 = "single-channel video | 2006";
+var reel_008 = "single-channel video | 2006";
+
+

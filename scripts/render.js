@@ -1,4 +1,4 @@
-//TODO: add video projects
+//FIXD: add video projects
 //TODO: add new image projects
 //TODO: add favicon
 //TODO: add affordance cue for selected project
@@ -6,7 +6,13 @@
 //TODO: add alt attr to all tags
 //TODO: add metadata tags
 //TODO: add humans.txt
-//TODO: delete imageHover() references in configureImageElements() - not needed
+//FIXD: video nav for re:elapses does not appear when nav'ing from image project first
+//FIXD: video nav does not work
+//FIXD: delete imageHover() references in configureImageElements() - not needed
+//FIXD: selecting video then selecting image results in image being appended to bottom of video
+//FIXD: selecting video then selecting video results in nothing happening
+//FIXD: video labels are not updated
+//FIXD: nav'ing home after selecting a video project does not stop/clear the video
 
 // Navigation Members
 var menu_plate = null;
@@ -252,8 +258,7 @@ function navToNewState(current_state, requested_state)
 	sSetB.animate({translation: "-265 0"},
 					100,
 					">");
-					
-	resetSieve();
+	resetAll();					
 	
 	sSetA.animate({translation: "-265 0"},
 					100,
@@ -620,15 +625,6 @@ function configureTextElements()
 						$("#_text_header").html("text");});
 }
 
-function imageHover(requestedProject)
-{
-/*
-
-	$("#_image_body").html( eval("image_"+requestedProject) );
-	$("#_image_header").html( eval(requestedProject + "_header") );	
-*/
-}
-
 function resetImageHover()
 {
 	$("#_image_body").html(image_text);
@@ -649,11 +645,12 @@ function configureImageElements()
 	c0.attr("cursor", "pointer");
 	c0.attr("fill", "#29ABE2");
 	c0.click(function(){
-						$("#_image_header").html("amerika")
+						resetVideo();
+						resetImageNav();
+						$("#_image_header").html("amerika");
 						currentImage   = 1;
 						currentProject = "amerika"; 
 						loadImg(currentImage, currentProject);
-						resetImageNav();
 						createImageNav("amerika");
 						labelImage(currentImage, currentProject);
 						});				
@@ -667,9 +664,7 @@ function configureImageElements()
 						function(){
 							if (currentProject == "image") {
 								resetImageHover();
-							} else {
-								imageHover(currentProject);
-							}	
+							} 
 						});
 			
 	////
@@ -677,10 +672,14 @@ function configureImageElements()
 	c1.attr("cursor", "pointer");
 	c1.attr("fill", "#29ABE2");
 	c1.click(function(){
+						resetVideo();
+						resetImageNav();
 						$("#_image_header").html("b41");
 						currentImage = 0;
 						currentProject = "b41";
 						loadVideo(currentImage, currentProject);
+						labelImage(currentImage+1, currentProject);
+						$("#_imageInfo").show();
 						});				
 	c1.hover(function(){
 						if (currentProject == "image") {
@@ -692,9 +691,7 @@ function configureImageElements()
 						function(){
 							if (currentProject == "image") {
 								resetImageHover();
-							} else {
-								imageHover(currentProject);
-							}	
+							} 
 						});
 	////
 	
@@ -702,11 +699,12 @@ function configureImageElements()
 	c3.attr("cursor", "pointer");
 	c3.attr("fill", "#29ABE2");
 	c3.click(function(){
+						resetVideo();
+						resetImageNav();
 						$("#_image_header").html("mr.torn + olympia");
 						currentImage   = 1;
 						currentProject = "olympia"; 
 						loadImg(currentImage, currentProject);
-						resetImageNav();
 						createImageNav("olympia");
 						labelImage(currentImage, currentProject);
 						});
@@ -720,20 +718,19 @@ function configureImageElements()
 			function(){
 				if (currentProject == "image") {
 					resetImageHover();
-				} else {
-					imageHover(currentProject);
-				}
+				} 
 			});
 	////
 	c15.attr("title", "plasticity");
 	c15.attr("cursor", "pointer");
 	c15.attr("fill", "#29ABE2");
 	c15.click(function(){
+						resetVideo();
+						resetImageNav();
 						$("#_image_header").html("plasticity");
 						currentImage   = 1;
 						currentProject = "plasticity"; 
 						loadImg(currentImage, currentProject);
-						resetImageNav();
 						createImageNav("plasticity");
 						});
 						
@@ -746,9 +743,7 @@ function configureImageElements()
 			function(){
 				if (currentProject == "image") {
 					resetImageHover();
-				} else {
-					imageHover(currentProject);
-				}		
+				} 
 			});
 	
 	///
@@ -756,10 +751,14 @@ function configureImageElements()
 	c5.attr("cursor", "pointer");
 	c5.attr("fill", "#29ABE2");
 	c5.click(function(){
+						resetVideo();
+						resetImageNav();
 						$("#_image_header").html("my beating heart");
 						currentImage = 0;
 						currentProject = "heart";
 						loadVideo(currentImage, currentProject);
+						labelImage(currentImage+1, currentProject);
+						$("#_imageInfo").show();
 						});				
 	c5.hover(function(){
 						if (currentProject == "image") {
@@ -771,20 +770,19 @@ function configureImageElements()
 						function(){
 							if (currentProject == "image") {
 								resetImageHover();
-							} else {
-								imageHover(currentProject);
-							}	
+							} 
 						});
 	//
 	c6.attr("title", "portrait");
 	c6.attr("cursor", "pointer");
 	c6.attr("fill", "#29ABE2");
 	c6.click(function(){
+						resetVideo();
+						resetImageNav();
 						$("#_image_header").html("portraits");
 						currentImage   = 1;
 						currentProject = "portrait"; 
 						loadImg(currentImage, currentProject);
-						resetImageNav();
 						createImageNav("portrait");
 						labelImage(currentImage, currentProject);
 						});
@@ -798,9 +796,7 @@ function configureImageElements()
 			function(){
 				if (currentProject == "image") {
 					resetImageHover();
-				} else {
-					imageHover(currentProject);
-				}
+				} 
 			});
 	
 	////
@@ -808,10 +804,14 @@ function configureImageElements()
 	c11.attr("cursor", "pointer");
 	c11.attr("fill", "#29ABE2");
 	c11.click(function(){
+						resetVideo();
+						resetImageNav();
 						$("#_image_header").html("plasticity: 1.7");
 						currentImage = 0;
-						currentProject = "plasticity";
+						currentProject = "plasticity17";
 						loadVideo(currentImage, currentProject);
+						labelImage(currentImage+1, currentProject);
+						$("#_imageInfo").show();
 						});				
 	c11.hover(function(){
 						if (currentProject == "image") {
@@ -823,9 +823,7 @@ function configureImageElements()
 						function(){
 							if (currentProject == "image") {
 								resetImageHover();
-							} else {
-								imageHover(currentProject);
-							}	
+							} 
 						});
 	///
 	
@@ -833,11 +831,12 @@ function configureImageElements()
 	c13.attr("cursor", "pointer");
 	c13.attr("fill", "#29ABE2");
 	c13.click(function(){
+						resetVideo();
+						resetImageNav();
 						$("#_image_header").html("in Potentia");
 						currentImage   = 1;
 						currentProject = "potentia"; 
 						loadImg(currentImage, currentProject);
-						resetImageNav();
 						createImageNav("potentia");
 						labelImage(currentImage, currentProject);
 						});
@@ -851,19 +850,21 @@ function configureImageElements()
 			function(){
 				if (currentProject == "image") {
 					resetImageHover();
-				} else {
-					imageHover(currentProject);
-				}
+				} 
 			});
 	////
 	c16.attr("title", "beyond POST");
 	c16.attr("cursor", "pointer");
 	c16.attr("fill", "#29ABE2");
 	c16.click(function(){
+						resetVideo();
+						resetImageNav();
 						$("#_image_header").html("beyond POST");
 						currentImage = 0;
 						currentProject = "behind";
 						loadVideo(currentImage, currentProject);
+						labelImage(currentImage+1, currentProject);
+						$("#_imageInfo").show();
 						});				
 	c16.hover(function(){
 						if (currentProject == "image") {
@@ -875,9 +876,7 @@ function configureImageElements()
 						function(){
 							if (currentProject == "image") {
 								resetImageHover();
-							} else {
-								imageHover(currentProject);
-							}	
+							} 	
 						});
 	///
 	
@@ -885,11 +884,12 @@ function configureImageElements()
 	c17.attr("cursor", "pointer");
 	c17.attr("fill", "#29ABE2");
 	c17.click(function(){
+						resetVideo();
+						resetImageNav();
 						$("#_image_header").html("uncanny valley");
 						currentImage   = 1;
 						currentProject = "uncanny"; 
 						loadImg(currentImage, currentProject);
-						resetImageNav();
 						createImageNav("uncanny");
 						labelImage(currentImage, currentProject);
 						});
@@ -903,9 +903,7 @@ function configureImageElements()
 			function(){
 				if (currentProject == "image") {
 					resetImageHover();
-				} else {
-					imageHover(currentProject);
-				}
+				} 
 			});
 			
 	///
@@ -913,11 +911,15 @@ function configureImageElements()
 	c19.attr("cursor", "pointer");
 	c19.attr("fill", "#29ABE2");
 	c19.click(function(){
+						resetVideo();
+						resetImageNav();
 						$("#_image_header").html("re:elapses");
 						currentImage = 1;
 						currentProject = "reel";
 						loadVideo(currentImage, currentProject);
+						labelImage(currentImage+1, currentProject);
 						createImageNav(currentProject, true);
+						$("#_imageInfo").show();
 						});				
 	c19.hover(function(){
 						if (currentProject == "image") {
@@ -929,9 +931,7 @@ function configureImageElements()
 						function(){
 							if (currentProject == "image") {
 								resetImageHover();
-							} else {
-								imageHover(currentProject);
-							}	
+							} 
 						});
 	///		
 }
@@ -974,9 +974,14 @@ function loadImg(selImage, selProj)
 	$("#loader").show();
 	$("#_imageInfo").show();
 	
+	if ( $(image).css("display", "none") ) {
+		$(image).fadeIn();
+	}
+	
 	$(image).load(function () { 
+		
       $(this).hide();
-    
+
       // with the holding div #loader, apply:
       $('#loader')
         // remove the loading class (so no background spinner), 
@@ -984,7 +989,7 @@ function loadImg(selImage, selProj)
         
         // then insert our image
         .append(this);
-    
+
       // fade our image in to create a nice effect
       $(this).fadeIn();
     })
@@ -1024,92 +1029,44 @@ function loadVideo(selVid, selProj)
 function labelImage(selImage, selProj)
 {
 	var imgInfo = getImgLabel(selImage, selProj);
+	
+	console.log(imgInfo);
+	
 	$("#_imageInfo").html( eval(imgInfo) );
 }
 
 function createImageNav(currentProject, isVideo)
 {
-	img0 = image_plate.path("M 340 620 L 380 620 L 360 580 z");
-	img0.attr("opacity", 0.0);
-	img0.attr("cursor", "pointer");
-	img0.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(1, currentProject) + ")");
-	img0.attr("stroke-width", "0");
-	img0.click(function(){
+	if (!isVideo) {
+		img0 = image_plate.path("M 340 620 L 380 620 L 360 580 z");
+		img0.attr("opacity", 0.0);	
+		img0.attr("cursor", "pointer");
+		img0.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(1, currentProject) + ")");
+		img0.attr("stroke-width", "0");
+		img0.click(function(){
 						currentImage   = 1;
 						loadImg(currentImage, currentProject);
 						labelImage(currentImage, currentProject);
 						});
-	
-	img2 = image_plate.path("M 410 620 L 450 620 L 430 580 z");
-	img2.attr("opacity", 0.0);
-	img2.attr("cursor", "pointer");	
-	if (isVideo) {
-		img2.attr("fill", "#FF9900");
 	} else {
-		img2.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(3, currentProject) + ")");
-		img2.click(function(){
-						currentImage   = 3;
-						loadImg(currentImage, currentProject);
-						labelImage(currentImage, currentProject);
-						});
+		if (img0 != null) {
+			img0.remove();
+			img0 = null;
+		}
 	}
-	img2.attr("stroke-width", "0");
-	
-	
-	img4 = image_plate.path("M 480 620 L 520 620 L 500 580 z");
-	img4.attr("opacity", 0.0);
-	img4.attr("cursor", "pointer");
-	if (isVideo) {
-		img4.attr("fill", "#FF9900");
-	} else {
-		img4.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(5, currentProject) + ")");
-		img4.click(function(){
-						currentImage   = 5;
-						loadImg(currentImage, currentProject);
-						labelImage(currentImage, currentProject);
-						});
-	}
-	img4.attr("stroke-width", "0");
-	
-	
-	
-	img6 = image_plate.path("M 550 620 L 590 620 L 570 580 z");
-	img6.attr("opacity", 0.0);
-	img6.attr("cursor", "pointer");
-	if (isVideo) {
-		img6.attr("fill", "#FF9900");
-	} else {
-		img6.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(7, currentProject) + ")");
-		img6.click(function(){
-						currentImage   = 7;
-						loadImg(currentImage, currentProject);
-						labelImage(currentImage, currentProject);
-						});
-	}
-	img6.attr("stroke-width", "0");
-	
-	
-	img8 = image_plate.path("M 620 620 L 660 620 L 640 580 z");
-	img8.attr("opacity", 0.0);
-	img8.attr("cursor", "pointer");
-	if (isVideo) {
-		img8.attr("fill", "#FF9900");
-	} else {
-		img8.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(9, currentProject) + ")");
-		img8.click(function(){
-						currentImage   = 9;
-						loadImg(currentImage, currentProject);
-						labelImage(currentImage, currentProject);
-						});
-	}
-	img8.attr("stroke-width", "0");
-	
 	
 	img1 = image_plate.path("M 375 580 L 415 580 L 395 620 z");
 	img1.attr("opacity", 0.0);
 	img1.attr("cursor", "pointer");
 	if (isVideo) {
 		img1.attr("fill", "#FF9900");
+		img1.click(function(){
+						resetVideo();
+						currentImage = 1;
+						currentProject = "reel";
+						loadVideo(currentImage, currentProject);
+						labelImage(currentImage, currentProject);
+						});
 	} else {
 		img1.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(2, currentProject) + ")");
 		img1.click(function(){
@@ -1120,12 +1077,40 @@ function createImageNav(currentProject, isVideo)
 	}
 	img1.attr("stroke-width", "0");
 	
-						
+	img2 = image_plate.path("M 410 620 L 450 620 L 430 580 z");
+	img2.attr("opacity", 0.0);
+	img2.attr("cursor", "pointer");	
+	if (isVideo) {
+		img2.attr("fill", "#FF9900");
+		img2.click(function(){
+						resetVideo();
+						currentImage = 2;
+						currentProject = "reel";
+						loadVideo(currentImage, currentProject);
+						labelImage(currentImage, currentProject);
+						});
+	} else {
+		img2.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(3, currentProject) + ")");
+		img2.click(function(){
+						currentImage   = 3;
+						loadImg(currentImage, currentProject);
+						labelImage(currentImage, currentProject);
+						});
+	}
+	img2.attr("stroke-width", "0");
+	
 	img3 = image_plate.path("M 445 580 L 485 580 L 465 620 z");
 	img3.attr("opacity", 0.0);
 	img3.attr("cursor", "pointer");
 	if (isVideo) {
 		img3.attr("fill", "#FF9900");
+		img3.click(function(){
+						resetVideo();
+						currentImage = 3;
+						currentProject = "reel";
+						loadVideo(currentImage, currentProject);
+						labelImage(currentImage, currentProject);
+						});
 	} else {
 		img3.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(4, currentProject) + ")");
 		img3.click(function(){
@@ -1137,12 +1122,40 @@ function createImageNav(currentProject, isVideo)
 	img3.attr("stroke-width", "0");
 	
 	
+	img4 = image_plate.path("M 480 620 L 520 620 L 500 580 z");
+	img4.attr("opacity", 0.0);
+	img4.attr("cursor", "pointer");
+	if (isVideo) {
+		img4.attr("fill", "#FF9900");
+		img4.click(function(){
+						resetVideo();
+						currentImage = 4;
+						currentProject = "reel";
+						loadVideo(currentImage, currentProject);
+						labelImage(currentImage, currentProject);
+						});
+	} else {
+		img4.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(5, currentProject) + ")");
+		img4.click(function(){
+						currentImage   = 5;
+						loadImg(currentImage, currentProject);
+						labelImage(currentImage, currentProject);
+						});
+	}
+	img4.attr("stroke-width", "0");
 	
 	img5 = image_plate.path("M 515 580 L 555 580 L 535 620 z");
 	img5.attr("opacity", 0.0);
 	img5.attr("cursor", "pointer");
 	if (isVideo) {
 		img5.attr("fill", "#FF9900");
+		img5.click(function(){
+						resetVideo();
+						currentImage = 5;
+						currentProject = "reel";
+						loadVideo(currentImage, currentProject);
+						labelImage(currentImage, currentProject);
+						});
 	} else {
 		img5.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(6, currentProject) + ")");
 		img5.click(function(){
@@ -1153,14 +1166,40 @@ function createImageNav(currentProject, isVideo)
 	}
 	img5.attr("stroke-width", "0");
 	
-	
-	
+	img6 = image_plate.path("M 550 620 L 590 620 L 570 580 z");
+	img6.attr("opacity", 0.0);
+	img6.attr("cursor", "pointer");
+	if (isVideo) {
+		img6.attr("fill", "#FF9900");
+		img6.click(function(){
+						resetVideo();
+						currentImage = 6;
+						currentProject = "reel";
+						loadVideo(currentImage, currentProject);
+						labelImage(currentImage, currentProject);
+						});
+	} else {
+		img6.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(7, currentProject) + ")");
+		img6.click(function(){
+						currentImage   = 7;
+						loadImg(currentImage, currentProject);
+						labelImage(currentImage, currentProject);
+						});
+	}
+	img6.attr("stroke-width", "0");
 	
 	img7 = image_plate.path("M 585 580 L 625 580 L 605 620 z");
 	img7.attr("opacity", 0.0);
 	img7.attr("cursor", "pointer");
 	if (isVideo) {
 		img7.attr("fill", "#FF9900");
+		img7.click(function(){
+						resetVideo();
+						currentImage = 7;
+						currentProject = "reel";
+						loadVideo(currentImage, currentProject);
+						labelImage(currentImage, currentProject);
+						});
 	} else {
 		img7.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(8, currentProject) + ")");
 		img7.click(function(){
@@ -1171,20 +1210,47 @@ function createImageNav(currentProject, isVideo)
 	}
 	img7.attr("stroke-width", "0");
 	
-	
-	
-	img9 = image_plate.path("M 655 580 L 695 580 L 675 620 z");
-	img9.attr("opacity", 0.0);
-	img9.attr("cursor", "pointer");
-	img9.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(10, currentProject) + ")");
-	img9.attr("stroke-width", "0");
-	img9.click(function(){
-						currentImage   = 10;
+	img8 = image_plate.path("M 620 620 L 660 620 L 640 580 z");
+	img8.attr("opacity", 0.0);
+	img8.attr("cursor", "pointer");
+	if (isVideo) {
+		img8.attr("fill", "#FF9900");
+		img8.click(function(){
+						resetVideo();
+						currentImage = 8;
+						currentProject = "reel";
+						loadVideo(currentImage, currentProject);
+						labelImage(currentImage, currentProject);
+						});
+	} else {
+		img8.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(9, currentProject) + ")");
+		img8.click(function(){
+						currentImage   = 9;
 						loadImg(currentImage, currentProject);
 						labelImage(currentImage, currentProject);
 						});
-						
-						
+	}
+	img8.attr("stroke-width", "0");
+	
+	if (!isVideo) {
+		img9 = image_plate.path("M 655 580 L 695 580 L 675 620 z");
+		img9.attr("opacity", 0.0);
+		img9.attr("cursor", "pointer");
+		img9.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(10, currentProject) + ")");
+		img9.attr("stroke-width", "0");
+		img9.click(function(){
+							alert("click " + isVideo);
+							currentImage   = 10;
+							loadImg(currentImage, currentProject);
+							labelImage(currentImage, currentProject);
+							});
+	} else {
+		if (img9 != null) {
+			img9.remove();
+			img9 = null;
+		}
+	}	
+	
 	if (imageNav_set == null) {
 		imageNav_set = image_plate.set();
 		
@@ -1350,6 +1416,7 @@ function resetAll()
 	resetCode();
 	resetText();
 	resetImage();
+	resetVideo();
 	resetSieve();
 }
 
@@ -1410,8 +1477,47 @@ function resetImage()
 
 function resetImageNav()
 {
-	img0,img1,img2,img3,img4,img5,img6,img7,img8,img9 = null;
+	if (img0 != null)
+		img0.remove();
+		
+	if (img1 != null)
+		img1.remove();
+	
+	if (img2 != null)
+		img2.remove();
+	
+	if (img3 != null)
+		img3.remove();
+	
+	if (img4 != null)
+		img4.remove();
+		
+	if (img5 != null)
+		img5.remove();
+		
+	if (img6 != null)
+		img6.remove();
+		
+	if (img7 != null)
+		img7.remove();
+		
+	if (img8 != null)
+		img8.remove();
+		
+	if (img9 != null)
+		img9.remove();
+		
+	img0 = img1 = img2 = img3 = img4 = img5 = img6 = img7 = img8 = img9 = null;
 	imageNav_set = null;
+}
+
+function resetVideo()
+{
+	if ($("#_video_container").length > 0) {
+		$("#_video_container").remove();
+	}
+	
+	$(image).hide();
 }
 
 function resetSieve()
