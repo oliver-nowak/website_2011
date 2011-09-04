@@ -1036,7 +1036,7 @@ function loadVideo(selVid, selProj)
 	var video_tag = "<source src='/assets/video/"+ vid + ".iphone.mp4'/><source src='/assets/video/" + vid + ".theora.ogv' type='video/ogg; codecs=&#34;theora, vorbis&#34;'/><source src='/assets/video/" + vid + ".webmvp8.webm' type='video/webm; codecs=&#34;vp8, vorbis&#34;'/>";
 	
 	if ($("#_video_container").length < 1) {
-		$("#loader").append("<video id='_video_container' width='460' height='400' controls autoplay loop></video>");
+		$("#loader").append("<video id='_video_container' width='460' height='380' controls autoplay loop></video>");
 	}
 	
 	$("#_video_container").append( video_tag );
@@ -1052,7 +1052,7 @@ function labelImage(selImage, selProj)
 function createImageNav(currentProject, isVideo)
 {
 	if (!isVideo) {
-		img0 = image_plate.path("M 340 620 L 380 620 L 360 580 z");
+		img0 = image_plate.path("M 290 620 L 350 620 L 320 560 z");
 		img0.attr("opacity", 0.0);	
 		img0.attr("cursor", "pointer");
 		img0.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(1, currentProject) + ")");
@@ -1069,7 +1069,7 @@ function createImageNav(currentProject, isVideo)
 		}
 	}
 	
-	img1 = image_plate.path("M 375 580 L 415 580 L 395 620 z");
+	img1 = image_plate.path("M 335 580 L 395 580 L 365 640 z");
 	img1.attr("opacity", 0.0);
 	img1.attr("cursor", "pointer");
 	if (isVideo) {
@@ -1091,7 +1091,7 @@ function createImageNav(currentProject, isVideo)
 	}
 	img1.attr("stroke-width", "0");
 	
-	img2 = image_plate.path("M 410 620 L 450 620 L 430 580 z");
+	img2 = image_plate.path("M 380 620 L 440 620 L 410 560 z");
 	img2.attr("opacity", 0.0);
 	img2.attr("cursor", "pointer");	
 	if (isVideo) {
@@ -1113,7 +1113,7 @@ function createImageNav(currentProject, isVideo)
 	}
 	img2.attr("stroke-width", "0");
 	
-	img3 = image_plate.path("M 445 580 L 485 580 L 465 620 z");
+	img3 = image_plate.path("M 425 580 L 485 580 L 455 640 z");
 	img3.attr("opacity", 0.0);
 	img3.attr("cursor", "pointer");
 	if (isVideo) {
@@ -1136,7 +1136,7 @@ function createImageNav(currentProject, isVideo)
 	img3.attr("stroke-width", "0");
 	
 	
-	img4 = image_plate.path("M 480 620 L 520 620 L 500 580 z");
+	img4 = image_plate.path("M 470 620 L 530 620 L 500 560 z");
 	img4.attr("opacity", 0.0);
 	img4.attr("cursor", "pointer");
 	if (isVideo) {
@@ -1158,7 +1158,7 @@ function createImageNav(currentProject, isVideo)
 	}
 	img4.attr("stroke-width", "0");
 	
-	img5 = image_plate.path("M 515 580 L 555 580 L 535 620 z");
+	img5 = image_plate.path("M 515 580 L 575 580 L 545 640 z");
 	img5.attr("opacity", 0.0);
 	img5.attr("cursor", "pointer");
 	if (isVideo) {
@@ -1180,7 +1180,7 @@ function createImageNav(currentProject, isVideo)
 	}
 	img5.attr("stroke-width", "0");
 	
-	img6 = image_plate.path("M 550 620 L 590 620 L 570 580 z");
+	img6 = image_plate.path("M 560 620 L 620 620 L 590 560 z");
 	img6.attr("opacity", 0.0);
 	img6.attr("cursor", "pointer");
 	if (isVideo) {
@@ -1202,7 +1202,7 @@ function createImageNav(currentProject, isVideo)
 	}
 	img6.attr("stroke-width", "0");
 	
-	img7 = image_plate.path("M 585 580 L 625 580 L 605 620 z");
+	img7 = image_plate.path("M 605 580 L 665 580 L 635 640 z");
 	img7.attr("opacity", 0.0);
 	img7.attr("cursor", "pointer");
 	if (isVideo) {
@@ -1224,7 +1224,7 @@ function createImageNav(currentProject, isVideo)
 	}
 	img7.attr("stroke-width", "0");
 	
-	img8 = image_plate.path("M 620 620 L 660 620 L 640 580 z");
+	img8 = image_plate.path("M 650 620 L 710 620 L 680 560 z");
 	img8.attr("opacity", 0.0);
 	img8.attr("cursor", "pointer");
 	if (isVideo) {
@@ -1247,7 +1247,7 @@ function createImageNav(currentProject, isVideo)
 	img8.attr("stroke-width", "0");
 	
 	if (!isVideo) {
-		img9 = image_plate.path("M 655 580 L 695 580 L 675 620 z");
+		img9 = image_plate.path("M 695 580 L 755 580 L 725 640 z");
 		img9.attr("opacity", 0.0);
 		img9.attr("cursor", "pointer");
 		img9.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(10, currentProject) + ")");
