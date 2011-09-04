@@ -1,18 +1,9 @@
-//FIXD: add video projects
+
 //TODO: add new image projects
-//TODO: add favicon
 //TODO: add affordance cue for selected project
 //TODO: add affordance cue for selected image
 //TODO: add alt attr to all tags
-//TODO: add metadata tags
 //TODO: add humans.txt
-//FIXD: video nav for re:elapses does not appear when nav'ing from image project first
-//FIXD: video nav does not work
-//FIXD: delete imageHover() references in configureImageElements() - not needed
-//FIXD: selecting video then selecting image results in image being appended to bottom of video
-//FIXD: selecting video then selecting video results in nothing happening
-//FIXD: video labels are not updated
-//FIXD: nav'ing home after selecting a video project does not stop/clear the video
 
 // Navigation Members
 var menu_plate = null;
@@ -251,22 +242,25 @@ function navToNewState(current_state, requested_state)
 	$("#_"+ old_strat + "_strat").animate({opacity: 0.0},
 								100);
 
-	sSetA.animate({translation: "265 0"},
-					100,
-					">");
-					
-	sSetB.animate({translation: "-265 0"},
-					100,
-					">");
-	resetAll();					
+	if (sSetA != null && sSetB != null) {
+		sSetA.animate({translation: "265 0"},
+						100,
+						">");
+						
+		sSetB.animate({translation: "-265 0"},
+						100,
+						">");	
 	
-	sSetA.animate({translation: "-265 0"},
-					100,
-					">");
-					
-	sSetB.animate({translation: "265 0"},
-					100,
-					">");					
+		resetAll();					
+	
+		sSetA.animate({translation: "-265 0"},
+						100,
+						">");
+						
+		sSetB.animate({translation: "265 0"},
+						100,
+						">");					
+	}
 	
 	var new_strat = "";
 	switch(requested_state) {
@@ -762,7 +756,7 @@ function configureImageElements()
 						});				
 	c5.hover(function(){
 						if (currentProject == "image") {
-							$("#_image_body").html(video_behind);
+							$("#_image_body").html(video_heart);
 							$("#_image_header").html("my beating heart");
 						}
 						
@@ -1239,7 +1233,6 @@ function createImageNav(currentProject, isVideo)
 		img9.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(10, currentProject) + ")");
 		img9.attr("stroke-width", "0");
 		img9.click(function(){
-							alert("click " + isVideo);
 							currentImage   = 10;
 							loadImg(currentImage, currentProject);
 							labelImage(currentImage, currentProject);
