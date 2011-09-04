@@ -1,6 +1,5 @@
 
 //TODO: add new image projects
-//TODO: add affordance cue for selected project
 //TODO: add affordance cue for selected image
 //TODO: add alt attr to all tags
 //TODO: add humans.txt
@@ -310,13 +309,13 @@ function selectAbout()
 	}
 	
 	about_circle.attr("opacity", 0.0);
-	about_circle.attr("stroke", "#F00");
+	about_circle.attr("stroke", "#BF1D28");
 	about_circle.attr("stroke-width", "2");
 
 	createMenuNav();
 	home_nav.click(navAboutHome);
 	
-	about_nav.attr("fill", "#FF9900");
+	about_nav.attr("fill", "#BF1D28");
 	
 	about_set = menu_plate.set();	
 	about_set.push(image_nav,
@@ -345,15 +344,15 @@ function selectCode()
 	}
 	
 	code_circle.attr("opacity", 0.0);
-	code_circle.attr("stroke", "#F00");
+	code_circle.attr("stroke", "#BF1D28");
 	code_circle.attr("stroke-width", "2");
 	
 	createMenuNav();
 	home_nav.click(navCodeHome);
 	
-	code_nav.attr("fill", "#FF9900");
-	code_nav.attr("stroke-width", "0");
-	
+	code_nav.attr("fill", "#FFF")
+	        .attr("stroke", "#000");
+
 	code_set = code_plate.set();
 	code_set.push(image_nav,
 				  code_nav,
@@ -388,14 +387,14 @@ function selectText()
 	}
 	
 	text_circle.attr("opacity", 0.0);
-	text_circle.attr("stroke", "#F00");
+	text_circle.attr("stroke", "#BF1D28");
 	text_circle.attr("stroke-width", "2");
 	
 	createMenuNav();
 	home_nav.click(navTextHome);
 	
-	text_nav.attr("fill", "#FF9900");
-	text_nav.attr("stroke-width", "0");
+	text_nav.attr("fill", "#FFF")
+			.attr("stroke", "#000");
 	
 	text_set = text_plate.set();
 	text_set.push(image_nav,
@@ -431,14 +430,14 @@ function selectImage()
 	}
 	
 	image_circle.attr("opacity", 0.0);
-	image_circle.attr("stroke", "#F00");
+	image_circle.attr("stroke", "#BF1D28");
 	image_circle.attr("stroke-width", "2");
 	
 	createMenuNav();
 	home_nav.click(navImageHome);
 	
-	image_nav.attr("fill", "#FF9900");
-	image_nav.attr("stroke-width", "0");
+	image_nav.attr("fill", "#FFF")
+			 .attr("stroke", "#000");
 	
 	image_set = image_plate.set();
 	image_set.push(image_nav,
@@ -472,7 +471,7 @@ function configureCodeElements()
 	c0.attr("cursor", "pointer");
 	c0.attr("href", "https://github.com/oliver-nowak/website_2011");
 	c0.attr("target", "_blank");
-	c0.attr("fill", "#29ABE2");
+	c0.attr("fill", "#0977B2");
 	c0.click();
 	c0.hover(function(){$("#_code_body").html(code_website);
 						$("#_code_header").html("website c.2011");},
@@ -483,7 +482,7 @@ function configureCodeElements()
 	c9.attr("cursor", "pointer");
 	c9.attr("href", "https://github.com/oliver-nowak/SICP-Exercises");
 	c9.attr("target", "_blank");
-	c9.attr("fill", "#29ABE2");
+	c9.attr("fill", "#0977B2");
 	c9.click();
 	c9.hover(function(){$("#_code_body").html(code_sicp);
 						$("#_code_header").html("SICP Exercises");},
@@ -494,7 +493,7 @@ function configureCodeElements()
 	c16.attr("cursor", "pointer");
 	c16.attr("href", "https://github.com/oliver-nowak/pixel_splicer");
 	c16.attr("target", "_blank");
-	c16.attr("fill", "#29ABE2");
+	c16.attr("fill", "#0977B2");
 	c16.click();
 	c16.hover(function(){$("#_code_body").html(code_splicer);
 						$("#_code_header").html("pixel splicer");},
@@ -505,7 +504,7 @@ function configureCodeElements()
 	c6.attr("cursor", "pointer");
 	c6.attr("href", "https://github.com/oliver-nowak/atlantis");
 	c6.attr("target", "_blank");
-	c6.attr("fill", "#29ABE2");
+	c6.attr("fill", "#0977B2");
 	c6.click();
 	c6.hover(function(){$("#_code_body").html(code_atlantis);
 						$("#_code_header").html("atlantis");},
@@ -516,7 +515,7 @@ function configureCodeElements()
 	c10.attr("cursor", "pointer");
 	c10.attr("href", "https://github.com/oliver-nowak/pychop");
 	c10.attr("target", "_blank");
-	c10.attr("fill", "#29ABE2");
+	c10.attr("fill", "#0977B2");
 	c10.click();
 	c10.hover(function(){$("#_code_body").html(code_pychop);
 						$("#_code_header").html("pychop houdini shapes");},
@@ -527,7 +526,7 @@ function configureCodeElements()
 	c18.attr("cursor", "pointer");
 	c18.attr("href", "https://github.com/oliver-nowak/ocolor");
 	c18.attr("target", "_blank");
-	c18.attr("fill", "#29ABE2");
+	c18.attr("fill", "#0977B2");
 	c18.click();
 	c18.hover(function(){$("#_code_body").html(code_ocolor);
 						$("#_code_header").html("ocolor color library");},
@@ -541,7 +540,7 @@ function configureTextElements()
 	c1.attr("cursor", "pointer");
 	c1.attr("href", "http://olivernowak.com/assets/text/olivernowak_capularis.pdf");
 	c1.attr("target", "_blank");
-	c1.attr("fill", "#29ABE2");
+	c1.attr("fill", "#0977B2");
 	c1.click();
 	c1.hover(function(){$("#_text_body").html(text_capularis);
 						$("#_text_header").html("capularis");},
@@ -552,7 +551,7 @@ function configureTextElements()
 	c4.attr("cursor", "pointer");
 	c4.attr("href", "http://olivernowak.com/assets/text/olivernowak_caughtbetweenbulletandyou.pdf");
 	c4.attr("target", "_blank");
-	c4.attr("fill", "#29ABE2");
+	c4.attr("fill", "#0977B2");
 	c4.click();
 	c4.hover(function(){$("#_text_body").html(text_caught);
 						$("#_text_header").html("caught between the bullet & you");},
@@ -564,7 +563,7 @@ function configureTextElements()
 	c13.attr("cursor", "pointer");
 	c13.attr("href", "http://olivernowak.com/assets/text/olivernowak_chokingonstaples.pdf");
 	c13.attr("target", "_blank");
-	c13.attr("fill", "#29ABE2");
+	c13.attr("fill", "#0977B2");
 	c13.click();
 	c13.hover(function(){$("#_text_body").html(text_staples);
 						$("#_text_header").html("choking on staples");},
@@ -576,7 +575,7 @@ function configureTextElements()
 	c17.attr("cursor", "pointer");
 	c17.attr("href", "http://olivernowak.com/assets/text/olivernowak_thesis2008.pdf");
 	c17.attr("target", "_blank");
-	c17.attr("fill", "#29ABE2");
+	c17.attr("fill", "#0977B2");
 	c17.click();
 	c17.hover(function(){$("#_text_body").html(text_thesis);
 						$("#_text_header").html("in Potentia");},
@@ -587,7 +586,7 @@ function configureTextElements()
 	c6.attr("cursor", "pointer");
 	c6.attr("href", "http://olivernowak.com/assets/text/olivernowak_beautyoftrauma.pdf");
 	c6.attr("target", "_blank");
-	c6.attr("fill", "#29ABE2");
+	c6.attr("fill", "#0977B2");
 	c6.click();
 	c6.hover(function(){$("#_text_body").html(text_trauma);
 						$("#_text_header").html("the beauty of trauma and the trauma of beauty");},
@@ -599,7 +598,7 @@ function configureTextElements()
 	c11.attr("cursor", "pointer");
 	c11.attr("href", "http://olivernowak.com/assets/text/olivernowak_morituri.pdf");
 	c11.attr("target", "_blank");
-	c11.attr("fill", "#29ABE2");
+	c11.attr("fill", "#0977B2");
 	c11.click();
 	c11.hover(function(){$("#_text_body").html(text_morituri);
 						$("#_text_header").html("the morituri");},
@@ -611,7 +610,7 @@ function configureTextElements()
 	c18.attr("cursor", "pointer");
 	c18.attr("href", "http://olivernowak.com/assets/text/olivernowak_aclothlikegauze.pdf");
 	c18.attr("target", "_blank");
-	c18.attr("fill", "#29ABE2");
+	c18.attr("fill", "#0977B2");
 	c18.click();
 	c18.hover(function(){$("#_text_body").html(text_gauze);
 						$("#_text_header").html("a cloth like gauze");},
@@ -619,17 +618,7 @@ function configureTextElements()
 						$("#_text_header").html("text");});
 }
 
-function resetImageHover()
-{
-	$("#_image_body").html(image_text);
-	$("#_image_header").html("image");
-	
-	$("#_image_body").show();
-	$("#_image_header").show();
-	
-	$("#loader").hide();
-	$("#_imageInfo").hide();
-}
+
 
 function configureImageElements()
 {
@@ -637,16 +626,19 @@ function configureImageElements()
 	
 	c0.attr("title", "amerika");
 	c0.attr("cursor", "pointer");
-	c0.attr("fill", "#29ABE2");
-	c0.click(function(){
+	c0.attr("fill", "#0977B2");
+	c0.click(function(){						
 						resetVideo();
 						resetImageNav();
+						resetSieveAttr();
 						$("#_image_header").html("amerika");
 						currentImage   = 1;
 						currentProject = "amerika"; 
 						loadImg(currentImage, currentProject);
 						createImageNav("amerika");
 						labelImage(currentImage, currentProject);
+						c0.attr("stroke", "#FEF700");
+						c0.attr("stroke-width", "4");
 						});				
 	c0.hover(function(){
 						if (currentProject == "image") {
@@ -664,16 +656,19 @@ function configureImageElements()
 	////
 	c1.attr("title", "b41");
 	c1.attr("cursor", "pointer");
-	c1.attr("fill", "#29ABE2");
+	c1.attr("fill", "#0977B2");
 	c1.click(function(){
 						resetVideo();
 						resetImageNav();
+						resetSieveAttr();
 						$("#_image_header").html("b41");
 						currentImage = 0;
 						currentProject = "b41";
 						loadVideo(currentImage, currentProject);
 						labelImage(currentImage+1, currentProject);
 						$("#_imageInfo").show();
+						c1.attr("stroke", "#FEF700");
+						c1.attr("stroke-width", "4");
 						});				
 	c1.hover(function(){
 						if (currentProject == "image") {
@@ -691,16 +686,19 @@ function configureImageElements()
 	
 	c3.attr("title", "olympia");
 	c3.attr("cursor", "pointer");
-	c3.attr("fill", "#29ABE2");
+	c3.attr("fill", "#0977B2");
 	c3.click(function(){
 						resetVideo();
 						resetImageNav();
+						resetSieveAttr();
 						$("#_image_header").html("mr.torn + olympia");
 						currentImage   = 1;
 						currentProject = "olympia"; 
 						loadImg(currentImage, currentProject);
 						createImageNav("olympia");
 						labelImage(currentImage, currentProject);
+						c3.attr("stroke", "#FEF700");
+						c3.attr("stroke-width", "4");
 						});
 						
 	c3.hover(function(){
@@ -717,15 +715,18 @@ function configureImageElements()
 	////
 	c15.attr("title", "plasticity");
 	c15.attr("cursor", "pointer");
-	c15.attr("fill", "#29ABE2");
+	c15.attr("fill", "#0977B2");
 	c15.click(function(){
 						resetVideo();
 						resetImageNav();
+						resetSieveAttr();
 						$("#_image_header").html("plasticity");
 						currentImage   = 1;
 						currentProject = "plasticity"; 
 						loadImg(currentImage, currentProject);
 						createImageNav("plasticity");
+						c15.attr("stroke", "#FEF700");
+						c15.attr("stroke-width", "4");
 						});
 						
 	c15.hover(function(){
@@ -743,16 +744,19 @@ function configureImageElements()
 	///
 	c5.attr("title", "my beating heart");
 	c5.attr("cursor", "pointer");
-	c5.attr("fill", "#29ABE2");
+	c5.attr("fill", "#0977B2");
 	c5.click(function(){
 						resetVideo();
 						resetImageNav();
+						resetSieveAttr();
 						$("#_image_header").html("my beating heart");
 						currentImage = 0;
 						currentProject = "heart";
 						loadVideo(currentImage, currentProject);
 						labelImage(currentImage+1, currentProject);
 						$("#_imageInfo").show();
+						c5.attr("stroke", "#FEF700");
+						c5.attr("stroke-width", "4");
 						});				
 	c5.hover(function(){
 						if (currentProject == "image") {
@@ -769,16 +773,19 @@ function configureImageElements()
 	//
 	c6.attr("title", "portrait");
 	c6.attr("cursor", "pointer");
-	c6.attr("fill", "#29ABE2");
+	c6.attr("fill", "#0977B2");
 	c6.click(function(){
 						resetVideo();
 						resetImageNav();
+						resetSieveAttr();
 						$("#_image_header").html("portraits");
 						currentImage   = 1;
 						currentProject = "portrait"; 
 						loadImg(currentImage, currentProject);
 						createImageNav("portrait");
 						labelImage(currentImage, currentProject);
+						c6.attr("stroke", "#FEF700");
+						c6.attr("stroke-width", "4");
 						});
 						
 	c6.hover(function(){
@@ -796,16 +803,19 @@ function configureImageElements()
 	////
 	c11.attr("title", "plasticity: 1.7");
 	c11.attr("cursor", "pointer");
-	c11.attr("fill", "#29ABE2");
+	c11.attr("fill", "#0977B2");
 	c11.click(function(){
 						resetVideo();
 						resetImageNav();
+						resetSieveAttr();
 						$("#_image_header").html("plasticity: 1.7");
 						currentImage = 0;
 						currentProject = "plasticity17";
 						loadVideo(currentImage, currentProject);
 						labelImage(currentImage+1, currentProject);
 						$("#_imageInfo").show();
+						c11.attr("stroke", "#FEF700");
+						c11.attr("stroke-width", "4");
 						});				
 	c11.hover(function(){
 						if (currentProject == "image") {
@@ -823,16 +833,19 @@ function configureImageElements()
 	
 	c13.attr("title", "potentia");
 	c13.attr("cursor", "pointer");
-	c13.attr("fill", "#29ABE2");
+	c13.attr("fill", "#0977B2");
 	c13.click(function(){
 						resetVideo();
 						resetImageNav();
+						resetSieveAttr();
 						$("#_image_header").html("in Potentia");
 						currentImage   = 1;
 						currentProject = "potentia"; 
 						loadImg(currentImage, currentProject);
 						createImageNav("potentia");
 						labelImage(currentImage, currentProject);
+						c13.attr("stroke", "#FEF700");
+						c13.attr("stroke-width", "4");
 						});
 						
 	c13.hover(function(){
@@ -849,16 +862,19 @@ function configureImageElements()
 	////
 	c16.attr("title", "beyond POST");
 	c16.attr("cursor", "pointer");
-	c16.attr("fill", "#29ABE2");
+	c16.attr("fill", "#0977B2");
 	c16.click(function(){
 						resetVideo();
 						resetImageNav();
+						resetSieveAttr();
 						$("#_image_header").html("beyond POST");
 						currentImage = 0;
 						currentProject = "behind";
 						loadVideo(currentImage, currentProject);
 						labelImage(currentImage+1, currentProject);
 						$("#_imageInfo").show();
+						c16.attr("stroke", "#FEF700");
+						c16.attr("stroke-width", "4");
 						});				
 	c16.hover(function(){
 						if (currentProject == "image") {
@@ -876,16 +892,19 @@ function configureImageElements()
 	
 	c17.attr("title", "uncanny");
 	c17.attr("cursor", "pointer");
-	c17.attr("fill", "#29ABE2");
+	c17.attr("fill", "#0977B2");
 	c17.click(function(){
 						resetVideo();
 						resetImageNav();
+						resetSieveAttr();
 						$("#_image_header").html("uncanny valley");
 						currentImage   = 1;
 						currentProject = "uncanny"; 
 						loadImg(currentImage, currentProject);
 						createImageNav("uncanny");
 						labelImage(currentImage, currentProject);
+						c17.attr("stroke", "#FEF700");
+						c17.attr("stroke-width", "4");
 						});
 						
 	c17.hover(function(){
@@ -903,10 +922,11 @@ function configureImageElements()
 	///
 	c19.attr("title", "re:elapses");
 	c19.attr("cursor", "pointer");
-	c19.attr("fill", "#29ABE2");
+	c19.attr("fill", "#0977B2");
 	c19.click(function(){
 						resetVideo();
 						resetImageNav();
+						resetSieveAttr();
 						$("#_image_header").html("re:elapses");
 						currentImage = 1;
 						currentProject = "reel";
@@ -914,6 +934,8 @@ function configureImageElements()
 						labelImage(currentImage+1, currentProject);
 						createImageNav(currentProject, true);
 						$("#_imageInfo").show();
+						c19.attr("stroke", "#FEF700");
+						c19.attr("stroke-width", "4");
 						});				
 	c19.hover(function(){
 						if (currentProject == "image") {
@@ -1023,8 +1045,6 @@ function loadVideo(selVid, selProj)
 function labelImage(selImage, selProj)
 {
 	var imgInfo = getImgLabel(selImage, selProj);
-	
-	console.log(imgInfo);
 	
 	$("#_imageInfo").html( eval(imgInfo) );
 }
@@ -1334,7 +1354,7 @@ function createSieve()
 {
 	if (sieve_plate == null)
 	{
-		sieve_plate = Raphael(100, 100, 1100, 460);
+		sieve_plate = Raphael(100, 100, 1100, 465);
 		isSieveInit = true;
 	}
 
@@ -1408,6 +1428,7 @@ function resetAll()
 	resetAbout();
 	resetCode();
 	resetText();
+	resetImageNav();
 	resetImage();
 	resetVideo();
 	resetSieve();
@@ -1468,6 +1489,18 @@ function resetImage()
 	}
 }
 
+function resetImageHover()
+{
+	$("#_image_body").html(image_text);
+	$("#_image_header").html("image");
+	
+	$("#_image_body").show();
+	$("#_image_header").show();
+	
+	$("#loader").hide();
+	$("#_imageInfo").hide();
+}
+
 function resetImageNav()
 {
 	if (img0 != null)
@@ -1500,7 +1533,10 @@ function resetImageNav()
 	if (img9 != null)
 		img9.remove();
 		
-	img0 = img1 = img2 = img3 = img4 = img5 = img6 = img7 = img8 = img9 = null;
+	if (imageNav_set != null)
+		imageNav_set.remove();
+		
+	img0,img1,img2,img3,img4,img5,img6,img7,img8,img9 = null;
 	imageNav_set = null;
 }
 
@@ -1513,6 +1549,14 @@ function resetVideo()
 	$(image).hide();
 }
 
+function resetSieveAttr()
+{
+	sSetA.attr("stroke", "#0091FF");
+	sSetA.attr("stroke-width", "0");
+	sSetB.attr("stroke", "#0091FF");
+	sSetB.attr("stroke-width", "0");
+
+}
 function resetSieve()
 {
 	sSetA.translate(-265, 0);	
