@@ -62,6 +62,7 @@ var code_splicer = "An Adobe AIR application I developed to pixel-splice consecu
 var code_atlantis = "A Java-port of nano-pond. This is a Java-based digital life incubator.";
 var code_pychop = "A python wrapper for Houdini to make it easier to code from an external IDE.<br><br>This was mainly to facilitate an easier means of creating and rendering 3d objects within Houdini using its Python interface.";
 var code_ocolor = "This is a C++ color library for openFrameworks ported from toxi's java library.";
+var code_clarendon = "A multi-threaded, HTML5 Websocket implementation in both Java and Python.<br><br>It uses protocol 76 for its handshaking."
 
 // TEXT text
 var text_text = "Stuff I wrote.";
@@ -475,6 +476,17 @@ function configureCodeElements()
 	c0.click();
 	c0.hover(function(){$("#_code_body").html(code_website);
 						$("#_code_header").html("website c.2011");},
+			function(){$("#_code_body").html(code_text);
+						$("#_code_header").html("code");});
+						
+	c2.attr("title", "HTML5 Websocket Implementation");
+	c2.attr("cursor", "pointer");
+	c2.attr("href", "https://github.com/oliver-nowak/clarendon");
+	c2.attr("target", "_blank");
+	c2.attr("fill", "#0977B2");
+	c2.click();
+	c2.hover(function(){$("#_code_body").html(code_clarendon);
+						$("#_code_header").html("clarendon");},
 			function(){$("#_code_body").html(code_text);
 						$("#_code_header").html("code");});
 	
