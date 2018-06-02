@@ -55,7 +55,7 @@ home_plate.importSVG('<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmln
 
 
 // CODE text
-var code_text = "I am a self-taught programmer extremely interested in aesthetic computation.<br><br>Presently, I am most interested in artificial life, machine learning, computer vision, visualizing massive data-sets and leveraging the concept of Photography as it is evaluated in digital form.<br><br>Most of my recent software is under NDA with Affectiva, Inc."
+var code_text = "I am a programmer extremely interested in aesthetic computation.<br><br>Presently, I am most interested in artificial life, machine learning, computer vision, visualizing massive data-sets and leveraging the concept of Photography as it is evaluated in digital form.<br><br>Most of my recent software is under NDA with TrueMotion."
 var code_website = "This project holds the source-code to this website.";
 var code_sicp = "I am currently going through the SICP Exercises in order to learn how to be a better programmer.<br><br>This repo contains my answers in Scheme / Lisp.";
 var code_splicer = "An Adobe AIR application I developed to pixel-splice consecutive image frames into one integrated image.<br><br>This was the application I wrote in order to create my images for my MFA thesis at SVA in early 2007.";
@@ -92,6 +92,8 @@ var video_reel = "An exploration of the liminal space between the still-image an
 
 function navAboutHome()
 {
+	gtag('config', 'UA-120265075-1', {'page_title': 'home', 'page_path': '/index.html'});
+	gtag('event', 'click', {'event_category': 'navigation', 'event_label': 'home'});
 	about_set.animate({opacity: 0.0},
 					  100,
 					  ">");
@@ -106,14 +108,14 @@ function navAboutHome()
 														 
 	$("#_home_strat").animate({opacity: 1.0},
 							 100);	
-							 
-	$("#twitter_container").animate({opacity:1.0}, 100);							 
-							 
+
 	resetAll();							
 }
 
 function navCodeHome()
 {
+	gtag('config', 'UA-120265075-1', {'page_title': 'home', 'page_path': '/index.html'});
+	gtag('event', 'click', {'event_category': 'navigation', 'event_label': 'home'});
 	sSetA.animate({opacity: 0.0, translation: "265 0"}, 
 					100,
 					">");
@@ -138,14 +140,14 @@ function navCodeHome()
 								
 	$("#_home_strat").animate({opacity: 1.0},
 							 100);	
-							 
-	$("#twitter_container").animate({opacity:1.0}, 100);								 	
-							 
+
 	resetAll();					
 }
 
 function navTextHome()
 {
+	gtag('config', 'UA-120265075-1', {'page_title': 'home', 'page_path': '/index.html'});
+	gtag('event', 'click', {'event_category': 'navigation', 'event_label': 'home'});
 	sSetA.animate({opacity: 0.0, translation: "265 0"},
 					100,
 					">");
@@ -170,14 +172,14 @@ function navTextHome()
 								
 	$("#_home_strat").animate({opacity: 1.0},
 							 100);	
-							 
-	$("#twitter_container").animate({opacity:1.0}, 100);								 	
-							 
+
 	resetAll();			
 }
 
 function navImageHome()
 {
+	gtag('config', 'UA-120265075-1', {'page_title': 'home', 'page_path': '/index.html'});
+	gtag('event', 'click', {'event_category': 'navigation', 'event_label': 'home'});
 	sSetA.animate({opacity: 0.0, translation: "265 0"},
 					100,
 					">");
@@ -208,9 +210,7 @@ function navImageHome()
 								
 	$("#_home_strat").animate({opacity: 1.0},
 								100);
-								
-	$("#twitter_container").animate({opacity:1.0}, 100);									
-								
+
 	resetAll();							
 }
 
@@ -299,6 +299,8 @@ function clearAnimation()
 
 function selectAbout()
 {
+	gtag('config', 'UA-120265075-1', {'page_title': 'about', 'page_path': '/about.html'});
+	gtag('event', 'click', {'event_category': 'navigation', 'event_label': 'about'});
 	current_state = 1;
 	
 	if (about_plate == null) {
@@ -334,6 +336,8 @@ function selectAbout()
 
 function selectCode()
 {
+	gtag('config', 'UA-120265075-1', {'page_title': 'code', 'page_path': '/code.html'});
+	gtag('event', 'click', {'event_category': 'navigation', 'event_label': 'code'});
 	current_state = 2;
 	
 	if (code_plate == null) {
@@ -377,6 +381,8 @@ function selectCode()
 
 function selectText()
 {
+	gtag('config', 'UA-120265075-1', {'page_title': 'text', 'page_path': '/text.html'});
+	gtag('event', 'click', {'event_category': 'navigation', 'event_label': 'text'});
 	current_state = 3;
 	
 	if (text_plate == null) {
@@ -419,6 +425,8 @@ function selectText()
 
 function selectImage()
 {
+	gtag('config', 'UA-120265075-1', {'page_title': 'image', 'page_path': '/image.html'});
+	gtag('event', 'click', {'event_category': 'navigation', 'event_label': 'image'});
 	current_state = 4;
 	currentProject = "image";
 	
@@ -473,9 +481,11 @@ function configureCodeElements()
 	c0.attr("href", "https://github.com/oliver-nowak/website_2011");
 	c0.attr("target", "_blank");
 	c0.attr("fill", "#0977B2");
-	c0.click();
+	c0.click(function(){gtag('config', 'UA-120265075-1', {'page_title': 'website_2011', 'page_path': "/text/website_2011"});
+	gtag('event', 'click', {'event_category': 'navigation', 'event_label': 'website'});});
 	c0.hover(function(){$("#_code_body").html(code_website);
-						$("#_code_header").html("website c.2011");},
+						$("#_code_header").html("website c.2011");
+						gtag('event', 'hover', {'event_category': 'navigation', 'event_label': 'website'});},
 			function(){$("#_code_body").html(code_text);
 						$("#_code_header").html("code");});
 						
@@ -484,9 +494,11 @@ function configureCodeElements()
 	c2.attr("href", "https://github.com/oliver-nowak/clarendon");
 	c2.attr("target", "_blank");
 	c2.attr("fill", "#0977B2");
-	c2.click();
+	c2.click(function(){gtag('config', 'UA-120265075-1', {'page_title': 'clarendon', 'page_path': "/text/clarendon"});
+	gtag('event', 'click', {'event_category': 'navigation', 'event_label': 'clarendon'});});
 	c2.hover(function(){$("#_code_body").html(code_clarendon);
-						$("#_code_header").html("clarendon");},
+						$("#_code_header").html("clarendon");
+						gtag('event', 'hover', {'event_category': 'navigation', 'event_label': 'clarendon'});},
 			function(){$("#_code_body").html(code_text);
 						$("#_code_header").html("code");});
 	
@@ -495,9 +507,11 @@ function configureCodeElements()
 	c9.attr("href", "https://github.com/oliver-nowak/SICP-Exercises");
 	c9.attr("target", "_blank");
 	c9.attr("fill", "#0977B2");
-	c9.click();
+	c9.click(function(){gtag('config', 'UA-120265075-1', {'page_title': 'sicp', 'page_path': "/code/sicp_exercises"});
+	gtag('event', 'click', {'event_category': 'navigation', 'event_label': 'sicp'});});
 	c9.hover(function(){$("#_code_body").html(code_sicp);
-						$("#_code_header").html("SICP Exercises");},
+						$("#_code_header").html("SICP Exercises");
+						gtag('event', 'hover', {'event_category': 'navigation', 'event_label': 'sicp'});},
 			function(){$("#_code_body").html(code_text);
 						$("#_code_header").html("code");});
 			
@@ -506,9 +520,11 @@ function configureCodeElements()
 	c16.attr("href", "https://github.com/oliver-nowak/pixel_splicer");
 	c16.attr("target", "_blank");
 	c16.attr("fill", "#0977B2");
-	c16.click();
+	c16.click(function(){gtag('config', 'UA-120265075-1', {'page_title': 'pixel_splicer', 'page_path': "/code/pixel_splicer"});
+	gtag('event', 'click', {'event_category': 'navigation', 'event_label': 'pixel_splicer'});});
 	c16.hover(function(){$("#_code_body").html(code_splicer);
-						$("#_code_header").html("pixel splicer");},
+						$("#_code_header").html("pixel splicer");
+						gtag('event', 'hover', {'event_category': 'navigation', 'event_label': 'pixel_splicer'});},
 			function(){$("#_code_body").html(code_text);
 						$("#_code_header").html("code");});
 			
@@ -517,9 +533,11 @@ function configureCodeElements()
 	c6.attr("href", "https://github.com/oliver-nowak/atlantis");
 	c6.attr("target", "_blank");
 	c6.attr("fill", "#0977B2");
-	c6.click();
+	c6.click(function(){gtag('config', 'UA-120265075-1', {'page_title': 'atlantis', 'page_path': "/code/atlantis"});
+	gtag('event', 'click', {'event_category': 'navigation', 'event_label': 'atlantis'});});
 	c6.hover(function(){$("#_code_body").html(code_atlantis);
-						$("#_code_header").html("atlantis");},
+						$("#_code_header").html("atlantis");
+						gtag('event', 'hover', {'event_category': 'navigation', 'event_label': 'atlantis'});},
 			function(){$("#_code_body").html(code_text);
 						$("#_code_header").html("code");});
 			
@@ -528,9 +546,11 @@ function configureCodeElements()
 	c10.attr("href", "https://github.com/oliver-nowak/pychop");
 	c10.attr("target", "_blank");
 	c10.attr("fill", "#0977B2");
-	c10.click();
+	c10.click(function(){gtag('config', 'UA-120265075-1', {'page_title': 'pychop', 'page_path': "/code/pychop"});
+	gtag('event', 'click', {'event_category': 'navigation', 'event_label': 'pychop'});});
 	c10.hover(function(){$("#_code_body").html(code_pychop);
-						$("#_code_header").html("pychop houdini shapes");},
+						$("#_code_header").html("pychop houdini shapes");
+						gtag('event', 'hover', {'event_category': 'navigation', 'event_label': 'pychop'});},
 			function(){$("#_code_body").html(code_text);
 						$("#_code_header").html("code");});
 			
@@ -539,9 +559,11 @@ function configureCodeElements()
 	c18.attr("href", "https://github.com/oliver-nowak/ocolor");
 	c18.attr("target", "_blank");
 	c18.attr("fill", "#0977B2");
-	c18.click();
+	c18.click(function(){gtag('config', 'UA-120265075-1', {'page_title': 'ocolor', 'page_path': "/code/ocolor"});
+	gtag('event', 'click', {'event_category': 'navigation', 'event_label': 'ocolor'});});
 	c18.hover(function(){$("#_code_body").html(code_ocolor);
-						$("#_code_header").html("ocolor color library");},
+						$("#_code_header").html("ocolor color library");
+						gtag('event', 'hover', {'event_category': 'navigation', 'event_label': 'ocolor'});},
 			function(){$("#_code_body").html(code_text);
 						$("#_code_header").html("code");});
 }
@@ -553,9 +575,11 @@ function configureTextElements()
 	c1.attr("href", "http://olivernowak.com/assets/text/olivernowak_capularis.pdf");
 	c1.attr("target", "_blank");
 	c1.attr("fill", "#0977B2");
-	c1.click();
+	c1.click(function(){gtag('config', 'UA-120265075-1', {'page_title': 'capularis', 'page_path': "/text/capularis"});
+	gtag('event', 'click', {'event_category': 'download', 'event_label': 'capularis'});});
 	c1.hover(function(){$("#_text_body").html(text_capularis);
-						$("#_text_header").html("capularis");},
+						$("#_text_header").html("capularis");
+						gtag('event', 'hover', {'event_category': 'navigation', 'event_label': 'capularis'});},
 			function(){$("#_text_body").html(text_text);
 						$("#_text_header").html("text");});
 						
@@ -564,9 +588,11 @@ function configureTextElements()
 	c4.attr("href", "http://olivernowak.com/assets/text/olivernowak_caughtbetweenbulletandyou.pdf");
 	c4.attr("target", "_blank");
 	c4.attr("fill", "#0977B2");
-	c4.click();
+	c4.click(function(){gtag('config', 'UA-120265075-1', {'page_title': 'caught_between_bullet_and_you', 'page_path': "/text/caught_between_the_bullet_and_you"});
+	gtag('event', 'click', {'event_category': 'download', 'event_label': 'caught_between_bullet_and_you'});});
 	c4.hover(function(){$("#_text_body").html(text_caught);
-						$("#_text_header").html("caught between the bullet & you");},
+						$("#_text_header").html("caught between the bullet & you");
+						gtag('event', 'hover', {'event_category': 'navigation', 'event_label': 'caught_between_bullet_and_you'});},
 			function(){$("#_text_body").html(text_text);
 						$("#_text_header").html("text");});
 						
@@ -576,9 +602,11 @@ function configureTextElements()
 	c13.attr("href", "http://olivernowak.com/assets/text/olivernowak_chokingonstaples.pdf");
 	c13.attr("target", "_blank");
 	c13.attr("fill", "#0977B2");
-	c13.click();
+	c13.click(function(){gtag('config', 'UA-120265075-1', {'page_title': 'choking_on_staples', 'page_path': "/text/choking_on_staples"});
+	gtag('event', 'click', {'event_category': 'download', 'event_label': 'choking_on_staples'});});
 	c13.hover(function(){$("#_text_body").html(text_staples);
-						$("#_text_header").html("choking on staples");},
+						$("#_text_header").html("choking on staples");
+						gtag('event', 'hover', {'event_category': 'navigation', 'event_label': 'choking_on_staples'});},
 			function(){$("#_text_body").html(text_text);
 						$("#_text_header").html("text");});
 						
@@ -588,9 +616,11 @@ function configureTextElements()
 	c17.attr("href", "http://olivernowak.com/assets/text/olivernowak_thesis2008.pdf");
 	c17.attr("target", "_blank");
 	c17.attr("fill", "#0977B2");
-	c17.click();
+	c17.click(function(){gtag('config', 'UA-120265075-1', {'page_title': 'thesis', 'page_path': "/text/thesis"});
+	gtag('event', 'click', {'event_category': 'download', 'event_label': 'thesis'});});
 	c17.hover(function(){$("#_text_body").html(text_thesis);
-						$("#_text_header").html("in Potentia");},
+						$("#_text_header").html("in Potentia");
+						gtag('event', 'hover', {'event_category': 'navigation', 'event_label': 'thesis'});},
 			function(){$("#_text_body").html(text_text);
 						$("#_text_header").html("text");});
 						
@@ -599,9 +629,11 @@ function configureTextElements()
 	c6.attr("href", "http://olivernowak.com/assets/text/olivernowak_beautyoftrauma.pdf");
 	c6.attr("target", "_blank");
 	c6.attr("fill", "#0977B2");
-	c6.click();
+	c6.click(function(){gtag('config', 'UA-120265075-1', {'page_title': 'trauma_of_beauty', 'page_path': "/text/trauma_of_beauty"});
+	gtag('event', 'click', {'event_category': 'download', 'event_label': 'trauma_of_beauty'});});
 	c6.hover(function(){$("#_text_body").html(text_trauma);
-						$("#_text_header").html("the beauty of trauma and the trauma of beauty");},
+						$("#_text_header").html("the beauty of trauma and the trauma of beauty");
+						gtag('event', 'hover', {'event_category': 'navigation', 'event_label': 'trauma_of_beauty'});},
 			function(){$("#_text_body").html(text_text);
 						$("#_text_header").html("text");});
 						
@@ -611,9 +643,11 @@ function configureTextElements()
 	c11.attr("href", "http://olivernowak.com/assets/text/olivernowak_morituri.pdf");
 	c11.attr("target", "_blank");
 	c11.attr("fill", "#0977B2");
-	c11.click();
+	c11.click(function(){gtag('config', 'UA-120265075-1', {'page_title': 'morituri', 'page_path': "/text/morituri"});
+	gtag('event', 'click', {'event_category': 'download', 'event_label': 'morituri'});});
 	c11.hover(function(){$("#_text_body").html(text_morituri);
-						$("#_text_header").html("the morituri");},
+						$("#_text_header").html("the morituri");
+						gtag('event', 'hover', {'event_category': 'navigation', 'event_label': 'morituri'});},
 			function(){$("#_text_body").html(text_text);
 						$("#_text_header").html("text");});
 						
@@ -623,9 +657,11 @@ function configureTextElements()
 	c18.attr("href", "http://olivernowak.com/assets/text/olivernowak_aclothlikegauze.pdf");
 	c18.attr("target", "_blank");
 	c18.attr("fill", "#0977B2");
-	c18.click();
+	c18.click(function(){gtag('config', 'UA-120265075-1', {'page_title': 'cloth_like_gauze', 'page_path': "/text/cloth_like_gauze"});
+	gtag('event', 'click', {'event_category': 'download', 'event_label': 'cloth_like_gauze'});});
 	c18.hover(function(){$("#_text_body").html(text_gauze);
-						$("#_text_header").html("a cloth like gauze");},
+						$("#_text_header").html("a cloth like gauze");
+						gtag('event', 'hover', {'event_category': 'navigation', 'event_label': 'cloth_like_gauze'});},
 			function(){$("#_text_body").html(text_text);
 						$("#_text_header").html("text");});
 }
@@ -644,6 +680,8 @@ function configureImageElements()
 						resetImageNav();
 						resetSieveAttr();
 						$("#_image_header").html("amerika");
+						gtag('config', 'UA-120265075-1', {'page_title': 'amerika', 'page_path': '/image/amerika'});
+						gtag('event', 'click', {'event_category': 'navigation', 'event_label': 'amerika'});
 						currentImage   = 1;
 						currentProject = "amerika"; 
 						loadImg(currentImage, currentProject);
@@ -656,6 +694,7 @@ function configureImageElements()
 						if (currentProject == "image") {
 							$("#_image_body").html(image_amerika);
 							$("#_image_header").html("amerika");
+							gtag('event', 'hover', {'event_category': 'navigation', 'event_label': 'amerika'});
 						}
 						
 						},
@@ -674,6 +713,8 @@ function configureImageElements()
 						resetImageNav();
 						resetSieveAttr();
 						$("#_image_header").html("b41");
+						gtag('config', 'UA-120265075-1', {'page_title': 'b41', 'page_path': '/image/b41'});
+						gtag('event', 'click', {'event_category': 'navigation', 'event_label': 'b41'});
 						currentImage = 0;
 						currentProject = "b41";
 						loadVideo(currentImage, currentProject);
@@ -686,6 +727,7 @@ function configureImageElements()
 						if (currentProject == "image") {
 							$("#_image_body").html(video_b41);
 							$("#_image_header").html("b41");
+							gtag('event', 'hover', {'event_category': 'navigation', 'event_label': 'b41'});
 						}
 						
 						},
@@ -704,6 +746,8 @@ function configureImageElements()
 						resetImageNav();
 						resetSieveAttr();
 						$("#_image_header").html("mr.torn + olympia");
+						gtag('config', 'UA-120265075-1', {'page_title': 'olympia', 'page_path': '/image/olympia'});
+						gtag('event', 'click', {'event_category': 'navigation', 'event_label': 'olympia'});
 						currentImage   = 1;
 						currentProject = "olympia"; 
 						loadImg(currentImage, currentProject);
@@ -717,6 +761,7 @@ function configureImageElements()
 						if (currentProject == "image") {
 							$("#_image_body").html(image_olympia);
 							$("#_image_header").html("mr.torn + olympia");
+							gtag('event', 'hover', {'event_category': 'navigation', 'event_label': 'olympia'});
 						}
 						},
 			function(){
@@ -733,6 +778,8 @@ function configureImageElements()
 						resetImageNav();
 						resetSieveAttr();
 						$("#_image_header").html("plasticity");
+						gtag('config', 'UA-120265075-1', {'page_title': 'plasticity', 'page_path': '/image/plasticity'});
+						gtag('event', 'click', {'event_category': 'navigation', 'event_label': 'plasticity'});
 						currentImage   = 1;
 						currentProject = "plasticity"; 
 						loadImg(currentImage, currentProject);
@@ -745,6 +792,7 @@ function configureImageElements()
 						if (currentProject == "image") {
 							$("#_image_body").html(image_plasticity);
 							$("#_image_header").html("plasticity");
+							gtag('event', 'hover', {'event_category': 'navigation', 'event_label': 'plasticity'});
 						}
 						},
 			function(){
@@ -762,6 +810,8 @@ function configureImageElements()
 						resetImageNav();
 						resetSieveAttr();
 						$("#_image_header").html("my beating heart");
+						gtag('config', 'UA-120265075-1', {'page_title': 'heart', 'page_path': '/image/heart'});
+						gtag('event', 'click', {'event_category': 'navigation', 'event_label': 'heart'});
 						currentImage = 0;
 						currentProject = "heart";
 						loadVideo(currentImage, currentProject);
@@ -774,6 +824,7 @@ function configureImageElements()
 						if (currentProject == "image") {
 							$("#_image_body").html(video_heart);
 							$("#_image_header").html("my beating heart");
+							gtag('event', 'hover', {'event_category': 'navigation', 'event_label': 'heart'});
 						}
 						
 						},
@@ -791,6 +842,8 @@ function configureImageElements()
 						resetImageNav();
 						resetSieveAttr();
 						$("#_image_header").html("portraits");
+						gtag('config', 'UA-120265075-1', {'page_title': 'portrait', 'page_path': '/image/portrait'});
+						gtag('event', 'click', {'event_category': 'navigation', 'event_label': 'portrait'});
 						currentImage   = 1;
 						currentProject = "portrait"; 
 						loadImg(currentImage, currentProject);
@@ -804,6 +857,7 @@ function configureImageElements()
 						if (currentProject == "image") {
 							$("#_image_body").html(image_portrait);
 							$("#_image_header").html("portraits");
+							gtag('event', 'hover', {'event_category': 'navigation', 'event_label': 'portrait'});
 						}
 						},
 			function(){
@@ -821,6 +875,8 @@ function configureImageElements()
 						resetImageNav();
 						resetSieveAttr();
 						$("#_image_header").html("plasticity: 1.7");
+						gtag('config', 'UA-120265075-1', {'page_title': 'plasticity17', 'page_path': '/image/plasticity17'});
+						gtag('event', 'click', {'event_category': 'navigation', 'event_label': 'plasticity17'});
 						currentImage = 0;
 						currentProject = "plasticity17";
 						loadVideo(currentImage, currentProject);
@@ -833,6 +889,7 @@ function configureImageElements()
 						if (currentProject == "image") {
 							$("#_image_body").html(video_plasticity);
 							$("#_image_header").html("plasticity: 1.7");
+							gtag('event', 'hover', {'event_category': 'navigation', 'event_label': 'plasticity17'});
 						}
 						
 						},
@@ -851,6 +908,8 @@ function configureImageElements()
 						resetImageNav();
 						resetSieveAttr();
 						$("#_image_header").html("in Potentia");
+						gtag('config', 'UA-120265075-1', {'page_title': 'potentia', 'page_path': '/image/potentia'});
+						gtag('event', 'click', {'event_category': 'navigation', 'event_label': 'potentia'});
 						currentImage   = 1;
 						currentProject = "potentia"; 
 						loadImg(currentImage, currentProject);
@@ -864,6 +923,7 @@ function configureImageElements()
 						if (currentProject == "image") {
 							$("#_image_body").html(image_potentia);
 							$("#_image_header").html("in Potentia");
+							gtag('event', 'hover', {'event_category': 'navigation', 'event_label': 'potentia'});
 						}
 						},
 			function(){
@@ -880,6 +940,8 @@ function configureImageElements()
 						resetImageNav();
 						resetSieveAttr();
 						$("#_image_header").html("beyond POST");
+						gtag('config', 'UA-120265075-1', {'page_title': 'behind', 'page_path': '/image/behind'});
+						gtag('event', 'click', {'event_category': 'navigation', 'event_label': 'behind'});
 						currentImage = 0;
 						currentProject = "behind";
 						loadVideo(currentImage, currentProject);
@@ -892,6 +954,7 @@ function configureImageElements()
 						if (currentProject == "image") {
 							$("#_image_body").html(video_behind);
 							$("#_image_header").html("beyond POST");
+							gtag('event', 'hover', {'event_category': 'navigation', 'event_label': 'behind'});
 						}
 						
 						},
@@ -910,6 +973,8 @@ function configureImageElements()
 						resetImageNav();
 						resetSieveAttr();
 						$("#_image_header").html("uncanny valley");
+						gtag('config', 'UA-120265075-1', {'page_title': 'uncanny', 'page_path': '/image/uncanny'});
+						gtag('event', 'click', {'event_category': 'navigation', 'event_label': 'uncanny'});
 						currentImage   = 1;
 						currentProject = "uncanny"; 
 						loadImg(currentImage, currentProject);
@@ -923,6 +988,7 @@ function configureImageElements()
 							if (currentProject == "image") {
 								$("#_image_body").html(image_uncanny);
 								$("#_image_header").html("uncanny valley");
+								gtag('event', 'hover', {'event_category': 'navigation', 'event_label': 'uncanny'});
 							}
 						},
 			function(){
@@ -940,6 +1006,8 @@ function configureImageElements()
 						resetImageNav();
 						resetSieveAttr();
 						$("#_image_header").html("re:elapses");
+						gtag('config', 'UA-120265075-1', {'page_title': 'reel', 'page_path': '/image/reel'});
+						gtag('event', 'click', {'event_category': 'navigation', 'event_label': 'reel'});
 						currentImage = 1;
 						currentProject = "reel";
 						loadVideo(currentImage, currentProject);
@@ -953,6 +1021,7 @@ function configureImageElements()
 						if (currentProject == "image") {
 							$("#_image_body").html(video_reel);
 							$("#_image_header").html("re:elapses");
+							gtag('event', 'hover', {'event_category': 'navigation', 'event_label': 'reel'});
 						}
 						
 						},
@@ -1073,6 +1142,8 @@ function createImageNav(currentProject, isVideo)
 						currentImage   = 1;
 						loadImg(currentImage, currentProject);
 						labelImage(currentImage, currentProject);
+						gtag('config', 'UA-120265075-1', {'page_title': currentProject, 'page_path': "/image/" + currentProject + "/" + currentImage});
+						gtag('event', 'click', {'event_category': 'navigation', 'event_label': currentProject + "/" + currentImage});
 						});
 	} else {
 		if (img0 != null) {
@@ -1092,6 +1163,8 @@ function createImageNav(currentProject, isVideo)
 						currentProject = "reel";
 						loadVideo(currentImage, currentProject);
 						labelImage(currentImage, currentProject);
+						gtag('config', 'UA-120265075-1', {'page_title': currentProject, 'page_path': "/image/" + currentProject + "/" + currentImage});
+						gtag('event', 'click', {'event_category': 'navigation', 'event_label': currentProject + "/" + currentImage});
 						});
 	} else {
 		img1.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(2, currentProject) + ")");
@@ -1099,6 +1172,8 @@ function createImageNav(currentProject, isVideo)
 						currentImage   = 2;
 						loadImg(currentImage, currentProject);
 						labelImage(currentImage, currentProject);
+						gtag('config', 'UA-120265075-1', {'page_title': currentProject, 'page_path': "/image/" + currentProject + "/" + currentImage});
+						gtag('event', 'click', {'event_category': 'navigation', 'event_label': currentProject + "/" + currentImage});
 						});
 	}
 	img1.attr("stroke-width", "0");
@@ -1114,6 +1189,8 @@ function createImageNav(currentProject, isVideo)
 						currentProject = "reel";
 						loadVideo(currentImage, currentProject);
 						labelImage(currentImage, currentProject);
+						gtag('config', 'UA-120265075-1', {'page_title': currentProject, 'page_path': "/image/" + currentProject + "/" + currentImage});
+						gtag('event', 'click', {'event_category': 'navigation', 'event_label': currentProject + "/" + currentImage});
 						});
 	} else {
 		img2.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(3, currentProject) + ")");
@@ -1121,6 +1198,8 @@ function createImageNav(currentProject, isVideo)
 						currentImage   = 3;
 						loadImg(currentImage, currentProject);
 						labelImage(currentImage, currentProject);
+						gtag('config', 'UA-120265075-1', {'page_title': currentProject, 'page_path': "/image/" + currentProject + "/" + currentImage});
+						gtag('event', 'click', {'event_category': 'navigation', 'event_label': currentProject + "/" + currentImage});
 						});
 	}
 	img2.attr("stroke-width", "0");
@@ -1136,6 +1215,8 @@ function createImageNav(currentProject, isVideo)
 						currentProject = "reel";
 						loadVideo(currentImage, currentProject);
 						labelImage(currentImage, currentProject);
+						gtag('config', 'UA-120265075-1', {'page_title': currentProject, 'page_path': "/image/" + currentProject + "/" + currentImage});
+						gtag('event', 'click', {'event_category': 'navigation', 'event_label': currentProject + "/" + currentImage});
 						});
 	} else {
 		img3.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(4, currentProject) + ")");
@@ -1143,6 +1224,8 @@ function createImageNav(currentProject, isVideo)
 						currentImage   = 4;
 						loadImg(currentImage, currentProject);
 						labelImage(currentImage, currentProject);
+						gtag('config', 'UA-120265075-1', {'page_title': currentProject, 'page_path': "/image/" + currentProject + "/" + currentImage});
+						gtag('event', 'click', {'event_category': 'navigation', 'event_label': currentProject + "/" + currentImage});
 						});
 	}
 	img3.attr("stroke-width", "0");
@@ -1159,6 +1242,8 @@ function createImageNav(currentProject, isVideo)
 						currentProject = "reel";
 						loadVideo(currentImage, currentProject);
 						labelImage(currentImage, currentProject);
+						gtag('config', 'UA-120265075-1', {'page_title': currentProject, 'page_path': "/image/" + currentProject + "/" + currentImage});
+						gtag('event', 'click', {'event_category': 'navigation', 'event_label': currentProject + "/" + currentImage});
 						});
 	} else {
 		img4.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(5, currentProject) + ")");
@@ -1166,6 +1251,8 @@ function createImageNav(currentProject, isVideo)
 						currentImage   = 5;
 						loadImg(currentImage, currentProject);
 						labelImage(currentImage, currentProject);
+						gtag('config', 'UA-120265075-1', {'page_title': currentProject, 'page_path': "/image/" + currentProject + "/" + currentImage});
+						gtag('event', 'click', {'event_category': 'navigation', 'event_label': currentProject + "/" + currentImage});
 						});
 	}
 	img4.attr("stroke-width", "0");
@@ -1181,6 +1268,8 @@ function createImageNav(currentProject, isVideo)
 						currentProject = "reel";
 						loadVideo(currentImage, currentProject);
 						labelImage(currentImage, currentProject);
+						gtag('config', 'UA-120265075-1', {'page_title': currentProject, 'page_path': "/image/" + currentProject + "/" + currentImage});
+						gtag('event', 'click', {'event_category': 'navigation', 'event_label': currentProject + "/" + currentImage});
 						});
 	} else {
 		img5.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(6, currentProject) + ")");
@@ -1188,6 +1277,8 @@ function createImageNav(currentProject, isVideo)
 						currentImage   = 6;
 						loadImg(currentImage, currentProject);
 						labelImage(currentImage, currentProject);
+						gtag('config', 'UA-120265075-1', {'page_title': currentProject, 'page_path': "/image/" + currentProject + "/" + currentImage});
+						gtag('event', 'click', {'event_category': 'navigation', 'event_label': currentProject + "/" + currentImage});
 						});
 	}
 	img5.attr("stroke-width", "0");
@@ -1203,6 +1294,8 @@ function createImageNav(currentProject, isVideo)
 						currentProject = "reel";
 						loadVideo(currentImage, currentProject);
 						labelImage(currentImage, currentProject);
+						gtag('config', 'UA-120265075-1', {'page_title': currentProject, 'page_path': "/image/" + currentProject + "/" + currentImage});
+						gtag('event', 'click', {'event_category': 'navigation', 'event_label': currentProject + "/" + currentImage});
 						});
 	} else {
 		img6.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(7, currentProject) + ")");
@@ -1210,6 +1303,8 @@ function createImageNav(currentProject, isVideo)
 						currentImage   = 7;
 						loadImg(currentImage, currentProject);
 						labelImage(currentImage, currentProject);
+						gtag('config', 'UA-120265075-1', {'page_title': currentProject, 'page_path': "/image/" + currentProject + "/" + currentImage});
+						gtag('event', 'click', {'event_category': 'navigation', 'event_label': currentProject + "/" + currentImage});
 						});
 	}
 	img6.attr("stroke-width", "0");
@@ -1225,6 +1320,8 @@ function createImageNav(currentProject, isVideo)
 						currentProject = "reel";
 						loadVideo(currentImage, currentProject);
 						labelImage(currentImage, currentProject);
+						gtag('config', 'UA-120265075-1', {'page_title': currentProject, 'page_path': "/image/" + currentProject + "/" + currentImage});
+						gtag('event', 'click', {'event_category': 'navigation', 'event_label': currentProject + "/" + currentImage});
 						});
 	} else {
 		img7.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(8, currentProject) + ")");
@@ -1232,6 +1329,8 @@ function createImageNav(currentProject, isVideo)
 						currentImage   = 8;
 						loadImg(currentImage, currentProject);
 						labelImage(currentImage, currentProject);
+						gtag('config', 'UA-120265075-1', {'page_title': currentProject, 'page_path': "/image/" + currentProject + "/" + currentImage});
+						gtag('event', 'click', {'event_category': 'navigation', 'event_label': currentProject + "/" + currentImage});
 						});
 	}
 	img7.attr("stroke-width", "0");
@@ -1247,6 +1346,8 @@ function createImageNav(currentProject, isVideo)
 						currentProject = "reel";
 						loadVideo(currentImage, currentProject);
 						labelImage(currentImage, currentProject);
+						gtag('config', 'UA-120265075-1', {'page_title': currentProject, 'page_path': "/image/" + currentProject + "/" + currentImage});
+						gtag('event', 'click', {'event_category': 'navigation', 'event_label': currentProject + "/" + currentImage});
 						});
 	} else {
 		img8.attr("fill", "url(/assets/image/" + currentProject + "/" + getImgUrl(9, currentProject) + ")");
@@ -1254,6 +1355,8 @@ function createImageNav(currentProject, isVideo)
 						currentImage   = 9;
 						loadImg(currentImage, currentProject);
 						labelImage(currentImage, currentProject);
+						gtag('config', 'UA-120265075-1', {'page_title': currentProject, 'page_path': "/image/" + currentProject + "/" + currentImage});
+						gtag('event', 'click', {'event_category': 'navigation', 'event_label': currentProject + "/" + currentImage});
 						});
 	}
 	img8.attr("stroke-width", "0");
@@ -1268,6 +1371,8 @@ function createImageNav(currentProject, isVideo)
 							currentImage   = 10;
 							loadImg(currentImage, currentProject);
 							labelImage(currentImage, currentProject);
+							gtag('config', 'UA-120265075-1', {'page_title': currentProject, 'page_path': "/image/" + currentProject + "/" + currentImage});
+							gtag('event', 'click', {'event_category': 'navigation', 'event_label': currentProject + "/" + currentImage});
 							});
 	} else {
 		if (img9 != null) {
@@ -1312,6 +1417,7 @@ function createMenuNav()
 	image_nav.attr("opacity", 0.0);
 	image_nav.click(function() { 
 					navToNewState(current_state, 4);
+					gtag('event', 'click', {'event_category': 'navigation', 'event_label': 'images'});
 					});
 
 	if (code_nav == null) {
@@ -1324,6 +1430,7 @@ function createMenuNav()
 	code_nav.attr("opacity", 0.0);
 	code_nav.click(function(){
 					navToNewState(current_state,2);
+					gtag('event', 'click', {'event_category': 'navigation', 'event_label': 'code'});
 					});
 	
 	if (text_nav == null) {
@@ -1336,6 +1443,7 @@ function createMenuNav()
 	text_nav.attr("opacity", 0.0);
 	text_nav.click(function(){
 					navToNewState(current_state, 3);
+					gtag('event', 'click', {'event_category': 'navigation', 'event_label': 'text'});
 					});
 	
 	if (about_nav == null) {
@@ -1349,6 +1457,7 @@ function createMenuNav()
 	about_nav.attr("opacity", 0.0);
 	about_nav.click(function(){
 					navToNewState(current_state, 1);
+					gtag('event', 'click', {'event_category': 'navigation', 'event_label': 'about'});
 					});
 	
 	if (home_nav == null) {
